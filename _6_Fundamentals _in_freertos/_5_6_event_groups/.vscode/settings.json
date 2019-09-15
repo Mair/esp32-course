@@ -1,0 +1,8 @@
+{
+  "files.associations": {
+    "*.js": "javascriptreact",
+    "task.h": "c",
+    "queue": "c",
+    "semphr.h": "c"
+  }
+}

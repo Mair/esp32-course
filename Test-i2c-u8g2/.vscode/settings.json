@@ -1,0 +1,9 @@
+{
+  "files.associations": {
+    "*.js": "javascriptreact",
+    "freertos.h": "c",
+    "u8g2_esp32_hal.h": "c",
+    "gpio.h": "c",
+    "esp_log.h": "c"
+  }
+}

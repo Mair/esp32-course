@@ -1,0 +1,6 @@
+{
+  "files.associations": {
+    "*.js": "javascriptreact",
+    "freertos.h": "c"
+  }
+}

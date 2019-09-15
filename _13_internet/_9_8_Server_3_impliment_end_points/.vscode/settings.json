@@ -1,0 +1,14 @@
+{
+    "terminal.integrated.shell.windows": "cmd.exe",
+    "terminal.integrated.shellArgs.windows": [
+        "/k",
+        "%IDF_PATH%\\export.bat"
+    ],
+    
+    "files.associations": {
+        "*.md": "markdown",
+        "*.mdx": "tdx",
+        "stdio.h": "c",
+        "lm75a.h": "c"
+    }
+}

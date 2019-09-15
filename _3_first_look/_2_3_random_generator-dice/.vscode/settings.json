@@ -1,0 +1,7 @@
+{
+  "files.associations": {
+    "*.js": "javascriptreact",
+    "freertos.h": "c",
+    "esp_log.h": "c"
+  }
+}

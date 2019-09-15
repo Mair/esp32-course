@@ -1,0 +1,7 @@
+{
+  "files.associations": {
+    "*.js": "javascriptreact",
+    "task.h": "c",
+    "freertos.h": "c"
+  }
+}

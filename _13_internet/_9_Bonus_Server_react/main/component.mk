@@ -1,0 +1,1 @@
+COMPONENT_EMBED_TXTFILES := ../client/esp32-demo/build/index.html

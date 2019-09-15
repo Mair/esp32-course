@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "*.md": "tdx",
+        "*.mdx": "tdx",
+        "inttypes.h": "c"
+    }
+}

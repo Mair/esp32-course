@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "*.md": "markdown",
+        "*.mdx": "tdx",
+        "esp_types.h": "c",
+        "stdint.h": "c"
+    }
+}

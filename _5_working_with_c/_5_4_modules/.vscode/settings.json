@@ -1,0 +1,11 @@
+{
+  "files.associations": {
+    "*.md": "tdx",
+    "*.mdx": "tdx",
+    "*.js": "javascriptreact",
+    "task.h": "c",
+    "freertos.h": "c",
+    "stdio.h": "c",
+    "module.h": "c"
+  }
+}

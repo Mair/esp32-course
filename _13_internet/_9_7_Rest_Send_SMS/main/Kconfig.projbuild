@@ -1,0 +1,19 @@
+menu "WIFI CONNECT"
+
+config WIFI_SSID
+    string "SSID"
+    default "my ssid"
+
+config WIFI_PASSWORD
+    string "PASSWORD"
+    default "my password"  
+
+endmenu
+
+menu "TEL NUMBER"
+
+config TEL_NUMBER
+    string "TEL Number"
+    default "+61404123456"  
+
+endmenu

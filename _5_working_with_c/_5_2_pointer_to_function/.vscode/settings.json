@@ -1,0 +1,26 @@
+{
+  "files.associations": {
+    "*.md": "tdx",
+    "*.mdx": "tdx",
+    "*.js": "javascriptreact",
+    "task.h": "c",
+    "freertos.h": "c",
+    "stdio.h": "c",
+    "module.h": "c"
+  },
+  
+    "terminal.integrated.shell.windows": "C:/msys32/usr/bin/bash.exe",
+    "terminal.integrated.shellArgs.windows": [
+        "--login",
+    ],
+    "terminal.integrated.env.windows": {
+        "CHERE_INVOKING": "1",
+        "MSYSTEM": "MINGW32",
+    },
+    "files.associations": {
+      "time.h": "c",
+      "cjson.h": "c",
+      "http.h": "c"
+    },
+  }
+}
