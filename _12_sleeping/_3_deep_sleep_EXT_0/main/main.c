@@ -3,11 +3,17 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "esp_sleep.h"
+#include "driver/gpio.h"
+#include "driver/rtc_io.h"
+
+#define WAKE_UP_GPIO GPIO_NUM_0
 
 RTC_DATA_ATTR int wakeUpTimes = 0;
 
 void app_main(void)
 {
+  rtc_gpio_deinit(WAKE_UP_GPIO);
+
   if (wakeUpTimes == 0)
   {
     printf("starting first time\n");
@@ -18,9 +24,9 @@ void app_main(void)
   }
   wakeUpTimes++;
   int wakeup_time_sec = 5;
-  esp_sleep_enable_timer_wakeup(wakeup_time_sec * 1000000);
+  rtc_gpio_pulldown_en(WAKE_UP_GPIO);
+  esp_sleep_enable_ext0_wakeup(WAKE_UP_GPIO, 0);
   printf("entering deep sleep\n");
 
   esp_deep_sleep_start();
-  
 }

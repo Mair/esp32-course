@@ -20,7 +20,11 @@ void app_main(void)
   int wakeup_time_sec = 5;
   esp_sleep_enable_timer_wakeup(wakeup_time_sec * 1000000);
   printf("entering deep sleep\n");
+  
+  esp_sleep_pd_config(ESP_PD_DOMAIN_RTC_SLOW_MEM, ESP_PD_OPTION_OFF);
+  esp_sleep_pd_config(ESP_PD_DOMAIN_RTC_FAST_MEM, ESP_PD_OPTION_OFF);
+  esp_sleep_pd_config(ESP_PD_DOMAIN_RTC_PERIPH, ESP_PD_OPTION_OFF);
 
-  esp_deep_sleep_start();
+    esp_deep_sleep_start();
   
 }
