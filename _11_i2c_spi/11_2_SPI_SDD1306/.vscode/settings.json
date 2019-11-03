@@ -1,4 +1,8 @@
 {
+    
+    "terminal.integrated.env.windows": {
+        "IDF_PATH":"C:\\Users\\mairs\\esp\\esp-idf",
+    },
     "terminal.integrated.shell.windows": "cmd.exe",
     "terminal.integrated.shellArgs.windows": [
         "/k",
