@@ -1,0 +1,36 @@
+{
+  "name": "esp32-demo",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "gh-pages": "^2.1.1",
+    "react": "^16.11.6",
+    "react-dom": "^16.11.6",
+    "react-scripts": "3.2.0"
+  },
+  "scripts": {
+    "deploy": "npm run build && cd build&&now --public --target production",
+    "start": "react-scripts start",
+    "build": "set PUBLIC_URL=https://esp32-react.now.sh/&& react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "proxy": "http://192.168.0.111",
+  "//cmd now alias" : "now alias set https://xxxxx.now.sh https://esp32-react.now.sh"
+  
+}
