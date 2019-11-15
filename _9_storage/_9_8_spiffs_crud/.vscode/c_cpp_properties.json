@@ -1,7 +1,7 @@
 {
   "env": {
-    "IDF_TOOLS": "C:/Users/mairs/.espressif",
-    "IDF_PATH": "C:/Users/mairs/esp/esp-idf"
+    "IDF_TOOLS": "c:/esp/tools/.espressif/tools",
+    "IDF_PATH": "c:/esp/esp-idf"
   },
   "configurations": [
     {
@@ -14,6 +14,8 @@
         "${workspaceFolder}",
         "${workspaceFolder}/build/config",
         "${workspaceFolder}/build/bootloader/config",
+        "${IDF_TOOLS}/xtensa-esp32-elf/esp32-2019r1-8.2.0/xtensa-esp32-elf/lib/gcc/xtensa-esp32-elf/8.2.0/include",
+        "${IDF_TOOLS}/xtensa-esp32-elf/esp32-2019r1-8.2.0/xtensa-esp32-elf/xtensa-esp32-elf/include",
         "${IDF_PATH}/components/newlib/include",
         "${IDF_PATH}/components/esp32/include",
         "${IDF_PATH}/components/soc/esp32/include",
@@ -33,8 +35,15 @@
         "${IDF_PATH}/components/xtensa/esp32/include",
         "${IDF_PATH}/components/esp_rom/include",
         "${IDF_PATH}/components/spiffs/include",
-        "${IDF_PATH}/components/vfs/include"
-
+        "${IDF_PATH}/components/vfs/include",
+        "${IDF_PATH}/components/esp_event/include",
+        "${IDF_PATH}/components/esp_wifi/include",
+        "${IDF_PATH}/components/lwip/lwip/src/include",
+        "${IDF_PATH}/components/lwip/port/esp32/include",
+        "${IDF_PATH}/components/lwip/include/apps/sntp",
+        "${IDF_PATH}/components/lwip/include/apps",
+        "${IDF_PATH}/components/esp_http_server/include",
+        "${IDF_PATH}/components/nghttp/nghttp2/third-party/http-parser"
       ],
       "defines": [],
       "cStandard": "c11",

@@ -3,7 +3,7 @@ set(COMPONENT_SRCS "main.c"
                     "connect.c"
                     "getTemperature.c")
 
-set(COMPONENT_ADD_INCLUDEDIRS "*")
+set(COMPONENT_ADD_INCLUDEDIRS ".")
 
 set(COMPONENT_EMBED_TXTFILES
         "../client/esp32-demo/build/index.html")

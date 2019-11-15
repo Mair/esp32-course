@@ -1,7 +1,7 @@
 {
     "env": {
-        "IDF_TOOLS": "C:/Users/mairs/.espressif/tools",
-        "IDF_PATH": "C:/Users/mairs/esp/esp-idf"
+        "IDF_TOOLS": "c:/esp/tools/.espressif/tools",
+        "IDF_PATH": "c:/esp/esp-idf"
     },
     "configurations": [
         {
@@ -48,8 +48,8 @@
                 "${IDF_PATH}/components/lwip/include/apps",
                 "${IDF_PATH}/components/esp_http_server/include",
                 "${IDF_PATH}/components/nghttp/nghttp2/third-party/http-parser",
-                "C:/Users/mairs/esp/esp-idf/examples/common_components/protocol_examples_common/include",
-                "C:/Users/mairs/esp/esp-idf/components/esp_http_client/include"
+                "C:/esp/esp-idf/examples/common_components/protocol_examples_common/include",
+                "C:/esp/esp-idf/components/esp_http_client/include"
             ],
             "defines": [],
             "cStandard": "c11",
