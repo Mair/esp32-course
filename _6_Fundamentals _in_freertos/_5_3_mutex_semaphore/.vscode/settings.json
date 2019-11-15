@@ -1,6 +1,0 @@
-{
-  "files.associations": {
-    "*.js": "javascriptreact",
-    "task.h": "c"
-  }
-}

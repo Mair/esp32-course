@@ -1,7 +1,7 @@
 {
   "env": {
-    "IDF_TOOLS": "C:/Users/mairs/.espressif/tools",
-    "IDF_PATH": "C:/Users/mairs/esp/esp-idf"
+    "IDF_TOOLS": "c:/esp/tools/.espressif/tools",
+    "IDF_PATH": "c:/esp/esp-idf"
   },
   "configurations": [
     {

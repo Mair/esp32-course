@@ -1,13 +1,15 @@
 {
-    "terminal.integrated.env.windows": {
-        "IDF_PATH":"C:\\Users\\mairs\\esp\\esp-idf",
-    },
     "terminal.integrated.shell.windows": "cmd.exe",
     "terminal.integrated.shellArgs.windows": [
         "/k",
-        "%IDF_PATH%\\export.bat"
+        "c:\\esp\\esp-idf\\export.bat"
     ],
-    
+    "terminal.integrated.shell.linux":"/bin/bash",
+    "terminal.integrated.shellArgs.linux": [
+        "--init-file", 
+        "~/esp/esp-idf/export.sh",
+        "-i",
+    ],
     "files.associations": {
         "*.md": "markdown",
         "*.mdx": "tdx",

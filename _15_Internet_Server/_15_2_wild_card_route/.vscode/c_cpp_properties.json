@@ -1,4 +1,8 @@
 {
+    "env": {
+        "IDF_TOOLS": "c:/esp/tools/.espressif/tools",
+        "IDF_PATH": "c:/esp/esp-idf"
+    },
     "configurations": [
         {
             "name": "esp32",
@@ -22,7 +26,6 @@
                 "${IDF_PATH}/components/heap/include",
                 "${IDF_PATH}/components/soc/include",
                 "${IDF_PATH}/components/driver/include",
-                "${IDF_PATH}/components/log/include",
                 "${IDF_PATH}/components/freertos/include",
                 "${IDF_PATH}/components/tcpip_adapter/include",
                 "${IDF_PATH}/components/nvs_flash/include",
@@ -43,7 +46,8 @@
                 "${IDF_PATH}/components/lwip/include/apps/sntp",
                 "${IDF_PATH}/components/lwip/include/apps",
                 "${IDF_PATH}/components/esp_http_server/include",
-                "${IDF_PATH}/components/nghttp/nghttp2/third-party/http-parser"
+                "${IDF_PATH}/components/nghttp/nghttp2/third-party/http-parser",
+                "${IDF_PATH}/components/log/include"
             ],
             "defines": [],
             "cStandard": "c11",
