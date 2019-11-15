@@ -17,3 +17,10 @@ void app_main(void)
     vTaskDelay(1000 / portTICK_PERIOD_MS);    
   }
 }
+
+// 3.3 - 2.75 = 0.55
+
+// v = I * R
+// R = V / I
+// R = 0.55 / 0.02
+// R = 30 OHMS
