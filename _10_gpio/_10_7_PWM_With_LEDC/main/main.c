@@ -4,51 +4,43 @@
 #include "driver/ledc.h"
 #include "esp_err.h"
 
+void xx(void *params)
+{
+}
+
 void app_main(void)
 {
-  ledc_timer_config_t ledc_timer = {
-      .duty_resolution = LEDC_TIMER_10_BIT, // resolution of PWM duty
-      .freq_hz = 5000,                      // frequency of PWM signal
-      .speed_mode = LEDC_LOW_SPEED_MODE,   // timer mode
-      .timer_num = LEDC_TIMER_0,            // timer index
-      .clk_cfg = LEDC_AUTO_CLK,             // Auto select the source clock
-  };
-  // Set configuration of timer0 for high speed channels
-  ledc_timer_config(&ledc_timer);
-
-  ledc_channel_config_t ledc_channel = {
-      .channel = LEDC_CHANNEL_0,
-      .duty = 0,
-      .gpio_num = 2,
+  ledc_timer_config_t timer = {
       .speed_mode = LEDC_LOW_SPEED_MODE,
-      .hpoint = 0,
-      .timer_sel = LEDC_TIMER_0};
-  ledc_channel_config(&ledc_channel);
+      .duty_resolution = LEDC_TIMER_10_BIT,
+      .timer_num = LEDC_TIMER_0,
+      .freq_hz = 5000,
+      .clk_cfg = LEDC_AUTO_CLK};
 
-  // while (true)
-  // {
-  //   for (int i = 0; i < 1023; i++)
-  //   {
-  //     ledc_set_duty(LEDC_HIGH_SPEED_MODE, LEDC_CHANNEL_0, i);
-  //     ledc_update_duty(LEDC_HIGH_SPEED_MODE,LEDC_CHANNEL_0);
-  //     vTaskDelay(10 / portTICK_PERIOD_MS);
-  //   }
+  ledc_timer_config(&timer);
 
-  //   for (int i = 1023; i >= 0; i--)
-  //   {
-  //     ledc_set_duty(LEDC_HIGH_SPEED_MODE, LEDC_CHANNEL_0, i);
-  //     ledc_update_duty(LEDC_HIGH_SPEED_MODE,LEDC_CHANNEL_0);
-  //     vTaskDelay(10 / portTICK_PERIOD_MS);
-  //   }
-  // }
+  ledc_channel_config_t channel = {
+      .gpio_num = 4,
+      .speed_mode = LEDC_LOW_SPEED_MODE,
+      .channel = LEDC_CHANNEL_0,
+      .timer_sel = LEDC_TIMER_0,
+      .duty = 0,
+      .hpoint = 0};
+  ledc_channel_config(&channel);
 
   ledc_fade_func_install(0);
+  for (int i = 0; i < 1024; i++)
+  {
+    ledc_set_duty_and_update(LEDC_LOW_SPEED_MODE,LEDC_CHANNEL_0,i,0);
+    // ledc_set_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_0, i);
+    // ledc_update_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_0);
+    vTaskDelay(10 / portTICK_PERIOD_MS);
+  }
 
   while(true)
   {
-    ledc_set_fade_time_and_start(LEDC_LOW_SPEED_MODE,LEDC_CHANNEL_0,1023,3000,LEDC_FADE_NO_WAIT);
-    ledc_set_fade_time_and_start(LEDC_LOW_SPEED_MODE,LEDC_CHANNEL_0,0,3000,LEDC_FADE_NO_WAIT);
-    vTaskDelay(1000 / portTICK_PERIOD_MS);
-    printf("got here\n");
+    ledc_set_fade_time_and_start(LEDC_LOW_SPEED_MODE,LEDC_CHANNEL_0,0,1000,LEDC_FADE_WAIT_DONE);
+    ledc_set_fade_time_and_start(LEDC_LOW_SPEED_MODE,LEDC_CHANNEL_0,1024,1000,LEDC_FADE_WAIT_DONE);
   }
+
 }
