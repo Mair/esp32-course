@@ -1,0 +1,48 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "ESP32 OpenOCD",
+      "type": "cppdbg",
+      "request": "launch",
+      "miDebuggerPath": "${env:IDF_TOOLS_PATH}/tools/xtensa-esp32-elf/esp32-2019r1-8.2.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gdb.exe",
+      "cwd": "${workspaceFolder}/build",
+      //change the name of the elf file as required
+      "program": "${workspaceFolder}/build/mair-template.elf",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        },
+        {
+          // there's a bug in vs code that prevents us from using ${workspaceFolder} variable.
+          // update the path as needed
+          "text": "file 'C:/_esp32/esp32_starter_template/build/mair-template.elf'"
+        },
+        {
+          "text": "target remote 127.0.0.1:3333"
+        },
+        {
+          "text": "set remote hardware-watchpoint-limit 2"
+        },
+        {
+          "text": "monitor reset halt"
+        },
+        {
+          "text": "flushregs"
+        }
+      ],
+      "externalConsole": false,
+
+      "logging": {
+        // "trace": true,
+        // "traceResponse": true,
+        //"engineLogging": true
+      }
+    }
+  ]
+}
