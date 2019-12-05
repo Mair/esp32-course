@@ -13,7 +13,6 @@
     "files.associations": {
         "*.md": "markdown",
         "*.mdx": "tdx",
-        "stdio.h": "c",
-        "rtc_io.h": "c"
+        "stdio.h": "c"
     }
 }

@@ -3,9 +3,11 @@ menu "My Custom Menu"
 config MY_BOOL
     bool "select yes or no"
 
+config MY_SECRET
+    string "enter a secret"
+
 config MY_STRING
     string "enter a string"
-    default "hello world!"
         help
             this is my help text description
 
