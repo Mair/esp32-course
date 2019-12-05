@@ -8,6 +8,10 @@
   "files.associations": {
     "*.md": "markdown",
     "*.mdx": "tdx",
-    "stdio.h": "c"
-  }
+    "stdio.h": "c",
+    "esp_hidd_prf_api.h": "c"
+  },
+  "cSpell.words": [
+    "battary"
+  ]
 }

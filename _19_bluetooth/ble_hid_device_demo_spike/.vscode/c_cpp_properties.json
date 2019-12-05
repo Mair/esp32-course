@@ -1,6 +1,6 @@
 {
     "env": {
-        "MESSAGE":" MAC AND LINUX USERS!!!- change path from c:/... to ~/esp/... or as approirate for your enviroment",
+        "MESSAGE": " MAC AND LINUX USERS!!!- change path from c:/... to ~/esp/... or as approirate for your enviroment",
         "IDF_TOOLS": "c:/esp/tools/.espressif/tools",
         "IDF_PATH": "c:/esp/esp-idf"
     },
@@ -48,7 +48,9 @@
                 "${IDF_PATH}/components/lwip/include/apps",
                 "${IDF_PATH}/components/esp_http_server/include",
                 "${IDF_PATH}/components/nghttp/nghttp2/third-party/http-parser",
-                "${IDF_PATH}/components/log/include"
+                "${IDF_PATH}/components/log/include",
+                "C:/esp/esp-idf/components/bt/include",
+                "C:/esp/esp-idf/components/bt/host/bluedroid/api/include/api"
             ],
             "defines": [],
             "cStandard": "c11",
