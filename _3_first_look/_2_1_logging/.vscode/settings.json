@@ -8,7 +8,6 @@
   "files.associations": {
     "*.md": "markdown",
     "*.mdx": "tdx",
-    "stdio.h": "c",
-    "freertos.h": "c"
+    "stdio.h": "c"
   }
 }
