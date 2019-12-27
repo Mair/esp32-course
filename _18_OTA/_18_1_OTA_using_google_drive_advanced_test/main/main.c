@@ -15,7 +15,7 @@
 #define TAG "OTA"
 xSemaphoreHandle ota_semaphore;
 
-const int software_version = 103;
+const int software_version = 104;
 extern const uint8_t server_cert_pem_start[] asm("_binary_google_cer_start");
 
 static esp_err_t validate_image_header(esp_app_desc_t *new_app_info)
@@ -89,11 +89,17 @@ void run_ota(void *params)
       ESP_LOGD(TAG, "Image bytes read: %d", esp_https_ota_get_image_len_read(https_ota_handle));
     }
 
-    if (esp_https_ota_finish(https_ota_handle) != ESP_OK)
-    {
-      ESP_LOGE(TAG, "esp_https_ota_finish failed");
-      continue;
+    while (1) {
+        err = esp_https_ota_perform(https_ota_handle);
+        if (err != ESP_ERR_HTTPS_OTA_IN_PROGRESS) {
+            break;
+        }
+        // esp_https_ota_perform returns after every read operation which gives user the ability to
+        // monitor the status of OTA upgrade by calling esp_https_ota_get_image_len_read, which gives length of image
+        // data read so far.
+        ESP_LOGD(TAG, "Image bytes read: %d", esp_https_ota_get_image_len_read(https_ota_handle));
     }
+
 
     ESP_LOGI(TAG, "ESP_HTTPS_OTA upgrade successful. Rebooting ...");
     vTaskDelay(1000 / portTICK_PERIOD_MS);
