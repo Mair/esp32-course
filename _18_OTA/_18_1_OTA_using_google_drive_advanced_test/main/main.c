@@ -15,7 +15,7 @@
 #define TAG "OTA"
 xSemaphoreHandle ota_semaphore;
 
-const int software_version = 104;
+const int software_version = 106;
 extern const uint8_t server_cert_pem_start[] asm("_binary_google_cer_start");
 
 static esp_err_t validate_image_header(esp_app_desc_t *new_app_info)
@@ -102,7 +102,7 @@ void run_ota(void *params)
 
 
     ESP_LOGI(TAG, "ESP_HTTPS_OTA upgrade successful. Rebooting ...");
-    vTaskDelay(1000 / portTICK_PERIOD_MS);
+    vTaskDelay(5000 / portTICK_PERIOD_MS);
     esp_restart();
   }
 }
