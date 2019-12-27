@@ -15,7 +15,7 @@
 #define TAG "OTA"
 xSemaphoreHandle ota_semaphore;
 
-const int software_version = 106;
+const int software_version = 107;
 extern const uint8_t server_cert_pem_start[] asm("_binary_google_cer_start");
 
 static esp_err_t validate_image_header(esp_app_desc_t *new_app_info)
