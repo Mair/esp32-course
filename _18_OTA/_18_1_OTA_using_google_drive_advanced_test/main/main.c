@@ -44,14 +44,14 @@ void gracefully_err_out(char *err, esp_https_ota_handle_t https_ota_handle)
 
 void run_ota(void *params)
 {
+  ESP_ERROR_CHECK(nvs_flash_init());
+  tcpip_adapter_init();
+  ESP_ERROR_CHECK(esp_event_loop_create_default());
   while (true)
   {
     xSemaphoreTake(ota_semaphore, portMAX_DELAY);
     ESP_LOGI(TAG, "Invoking OTA");
 
-    ESP_ERROR_CHECK(nvs_flash_init());
-    tcpip_adapter_init();
-    ESP_ERROR_CHECK(esp_event_loop_create_default());
     ESP_ERROR_CHECK(example_connect());
 
     esp_http_client_config_t clientConfig = {
@@ -89,17 +89,18 @@ void run_ota(void *params)
       ESP_LOGD(TAG, "Image bytes read: %d", esp_https_ota_get_image_len_read(https_ota_handle));
     }
 
-    while (1) {
-        err = esp_https_ota_perform(https_ota_handle);
-        if (err != ESP_ERR_HTTPS_OTA_IN_PROGRESS) {
-            break;
-        }
-        // esp_https_ota_perform returns after every read operation which gives user the ability to
-        // monitor the status of OTA upgrade by calling esp_https_ota_get_image_len_read, which gives length of image
-        // data read so far.
-        ESP_LOGD(TAG, "Image bytes read: %d", esp_https_ota_get_image_len_read(https_ota_handle));
+    while (1)
+    {
+      err = esp_https_ota_perform(https_ota_handle);
+      if (err != ESP_ERR_HTTPS_OTA_IN_PROGRESS)
+      {
+        break;
+      }
+      // esp_https_ota_perform returns after every read operation which gives user the ability to
+      // monitor the status of OTA upgrade by calling esp_https_ota_get_image_len_read, which gives length of image
+      // data read so far.
+      ESP_LOGD(TAG, "Image bytes read: %d", esp_https_ota_get_image_len_read(https_ota_handle));
     }
-
 
     ESP_LOGI(TAG, "ESP_HTTPS_OTA upgrade successful. Rebooting ...");
     vTaskDelay(5000 / portTICK_PERIOD_MS);
