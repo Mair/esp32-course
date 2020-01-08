@@ -15,31 +15,28 @@
 #define TAG "OTA"
 xSemaphoreHandle ota_semaphore;
 
-const int software_version = 110;
 extern const uint8_t server_cert_pem_start[] asm("_binary_google_cer_start");
 
-static esp_err_t validate_image_header(esp_app_desc_t *new_app_info)
+esp_err_t client_event_handler(esp_http_client_event_t *evt)
 {
-  const esp_partition_t *running = esp_ota_get_running_partition();
-  esp_app_desc_t running_app_info;
-  if (esp_ota_get_partition_description(running, &running_app_info) == ESP_OK)
-  {
-    ESP_LOGI(TAG, "Running firmware version: %s", running_app_info.version);
-  }
-
-  if (memcmp(new_app_info->version, running_app_info.version, sizeof(new_app_info->version)) == 0)
-  {
-    ESP_LOGW(TAG, "Current running version is the same as a new. We will not continue the update.");
-    return ESP_FAIL;
-  }
   return ESP_OK;
 }
 
-void gracefully_err_out(char *err, esp_https_ota_handle_t https_ota_handle)
+esp_err_t validate_image_header(esp_app_desc_t *new_app_partition_description)
 {
-  ESP_LOGE(TAG, "%s", err);
-  esp_https_ota_finish(https_ota_handle);
-  vTaskDelete(NULL);
+  const esp_partition_t *running_partition = esp_ota_get_running_partition();
+  esp_app_desc_t running_partition_description;
+  esp_ota_get_partition_description(running_partition, &running_partition_description);
+  printf("current firmware version is: %s\n", running_partition_description.version);
+
+  printf("new firmware version is: %s size %d\n", new_app_partition_description->version, sizeof(running_partition_description.version));
+
+  if (strcmp(new_app_partition_description->version, running_partition_description.version) == 0)
+  {
+    ESP_LOGW(TAG, "CURRENT VERSION IS LATEST. ABORTING OTA");
+    return ESP_FAIL;
+  }
+  return ESP_OK;
 }
 
 void run_ota(void *params)
@@ -56,64 +53,56 @@ void run_ota(void *params)
 
     esp_http_client_config_t clientConfig = {
         .url = "https://drive.google.com/uc?authuser=0&id=1HQln4CQI55Qh9Yi4Km1Nyl4Hklv9QuqK&export=download", // our ota location
+        .event_handler = client_event_handler,
         .cert_pem = (char *)server_cert_pem_start};
 
     esp_https_ota_config_t ota_config = {
-        .http_config = &clientConfig,
-    };
-    esp_https_ota_handle_t https_ota_handle = NULL;
-    esp_err_t err = esp_https_ota_begin(&ota_config, &https_ota_handle);
-    if (err != ESP_OK)
-    {
-      ESP_LOGE(TAG, "ESP HTTPS OTA Begin failed");
-      vTaskDelete(NULL);
-    }
+        .http_config = &clientConfig};
 
-    esp_app_desc_t app_desc;
-    if (esp_https_ota_get_img_desc(https_ota_handle, &app_desc) != ESP_OK)
+    esp_https_ota_handle_t esp_https_ota_handle = NULL;
+
+    if (esp_https_ota_begin(&ota_config, &esp_https_ota_handle) != ESP_OK)
     {
-      ESP_LOGE(TAG, "esp_https_ota_read_img_desc failed");
-      esp_https_ota_finish(https_ota_handle);
+      ESP_LOGE(TAG, "esp_https_ota_begin failed");
+      example_disconnect();
       continue;
     }
 
-    if (validate_image_header(&app_desc) != ESP_OK)
+    esp_app_desc_t app_partition_description;
+    if (esp_https_ota_get_img_desc(esp_https_ota_handle, &app_partition_description) != ESP_OK)
+    {
+      ESP_LOGE(TAG, "esp_https_ota_get_img_desc failed");
+      esp_https_ota_finish(esp_https_ota_handle);
+      example_disconnect();
+      continue;
+    }
+
+    if (validate_image_header(&app_partition_description) != ESP_OK)
     {
       ESP_LOGE(TAG, "validate_image_header failed");
-      esp_https_ota_finish(https_ota_handle);
+      esp_https_ota_finish(esp_https_ota_handle);
+      example_disconnect();
       continue;
     }
 
-    while (esp_https_ota_perform(https_ota_handle) != ESP_ERR_HTTPS_OTA_IN_PROGRESS)
+    while (true)
     {
-      ESP_LOGD(TAG, "Image bytes read: %d", esp_https_ota_get_image_len_read(https_ota_handle));
-    }
-
-    while (1)
-    {
-      err = esp_https_ota_perform(https_ota_handle);
-      if (err != ESP_ERR_HTTPS_OTA_IN_PROGRESS)
-      {
+      esp_err_t ota_result = esp_https_ota_perform(esp_https_ota_handle);
+      if (ota_result != ESP_ERR_HTTPS_OTA_IN_PROGRESS)
         break;
-      }
-      // esp_https_ota_perform returns after every read operation which gives user the ability to
-      // monitor the status of OTA upgrade by calling esp_https_ota_get_image_len_read, which gives length of image
-      // data read so far.
-      ESP_LOGD(TAG, "Image bytes read: %d", esp_https_ota_get_image_len_read(https_ota_handle));
+      ESP_LOGD(TAG, "Image size read : %d", esp_https_ota_get_image_len_read(esp_https_ota_handle));
     }
-    if(esp_https_ota_finish(https_ota_handle) !=ESP_OK)
+
+    if (esp_https_ota_finish(esp_https_ota_handle) != ESP_OK)
     {
-      ESP_LOGE(TAG, "esp_https_ota_finish failed");
+      ESP_LOGE(TAG, "validate_image_header failed");
+      example_disconnect();
       continue;
     }
 
-    ESP_LOGI(TAG, "ESP_HTTPS_OTA upgrade successful. Rebooting ...");
-    vTaskDelay(5000 / portTICK_PERIOD_MS);
+    ESP_LOGI(TAG, "Firmware upgrade complete. Rebooting");
+    vTaskDelay(pdMS_TO_TICKS(5000));
     esp_restart();
-
-    while (1) {
-        vTaskDelay(1000 / portTICK_PERIOD_MS);
-    }
   }
 }
 
@@ -124,8 +113,12 @@ void on_button_pushed(void *params)
 
 void app_main(void)
 {
-  printf("HAY!!! This is a new feature\n");
-  ESP_LOGI("SOFTWARE VERSION", "we are running %d", software_version);
+
+  const esp_partition_t *running_partition = esp_ota_get_running_partition();
+  esp_app_desc_t running_partition_description;
+  esp_ota_get_partition_description(running_partition, &running_partition_description);
+  printf("current firmware version is: %s\n", running_partition_description.version);
+
   gpio_config_t gpioConfig = {
       .pin_bit_mask = 1ULL << GPIO_NUM_0,
       .mode = GPIO_MODE_DEF_INPUT,
