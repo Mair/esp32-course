@@ -13,7 +13,7 @@ void updatePerson(Person  *person) {
   person->age = 35;
 }
 void exclamIt(char * phrase){
-  sprintf(phrase,"%s!",phrase);
+  strcat(phrase, "!");
 }
 void app_main(void)
 {
