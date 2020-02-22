@@ -114,7 +114,7 @@ static int blehr_gap_event(struct ble_gap_event *event, void *arg)
   switch (event->type)
   {
   case BLE_GAP_EVENT_CONNECT:
-    ESP_LOGI(TAG, "connection %s\n", event->connect.status == 0 ? "established" : "failed");
+    ESP_LOGI(TA 0G, "connection %s\n", event->connect.status == 0 ? "established" : "failed");
     if (event->connect.status != 0)
     {
       ble_app_advertise();
@@ -157,7 +157,7 @@ static void ble_app_advertise(void)
   fields.name = (uint8_t *)ble_svc_gap_device_name();
   fields.name_len = strlen(device_name);
   fields.name_is_complete = 1;
-  fields.
+ 
   ble_gap_adv_set_fields(&fields);
 
   struct ble_gap_adv_params adv_params;
