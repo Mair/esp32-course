@@ -174,13 +174,13 @@ void hid_demo_task(void *pvParameters)
             x += 10;
             esp_hidd_send_mouse_value(hid_conn_id,0,x,0);
             vTaskDelay(3000 / portTICK_PERIOD_MS);
-            if (send_volum_up) {
-                send_volum_up = false;
-                esp_hidd_send_consumer_value(hid_conn_id, HID_CONSUMER_VOLUME_UP, false);
-                esp_hidd_send_consumer_value(hid_conn_id, HID_CONSUMER_VOLUME_DOWN, true);
-                vTaskDelay(3000 / portTICK_PERIOD_MS);
-                esp_hidd_send_consumer_value(hid_conn_id, HID_CONSUMER_VOLUME_DOWN, false);
-            }
+            // if (send_volum_up) {
+            //     send_volum_up = false;
+            //     esp_hidd_send_consumer_value(hid_conn_id, HID_CONSUMER_VOLUME_UP, false);
+            //     esp_hidd_send_consumer_value(hid_conn_id, HID_CONSUMER_VOLUME_DOWN, true);
+            //     vTaskDelay(3000 / portTICK_PERIOD_MS);
+            //     esp_hidd_send_consumer_value(hid_conn_id, HID_CONSUMER_VOLUME_DOWN, false);
+            // }
         }
     }
 }
