@@ -197,7 +197,8 @@ void app_main(void)
     ble_hs_cfg.sync_cb = ble_app_on_sync;
 
     timer_handler = xTimerCreate("update_battery_timer", pdMS_TO_TICKS(1000), pdTRUE, NULL, update_battery_timer);
-   
+    
+    printf("got here\n");
 
     nimble_port_freertos_init(host_task);
 }
