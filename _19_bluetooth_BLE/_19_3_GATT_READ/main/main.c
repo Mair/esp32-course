@@ -8,7 +8,7 @@
 #include "services/gap/ble_svc_gap.h"
 #include "services/gatt/ble_svc_gatt.h"
 
-#define DEVICE_NAME "MY BLE DEVICEX"
+#define DEVICE_NAME "MY BLE DEVICE xyz"
 uint8_t ble_addr_type;
 void ble_app_advertise(void);
 
@@ -17,7 +17,8 @@ void ble_app_advertise(void);
 
 static int device_info(uint16_t conn_handle, uint16_t attr_handle, struct ble_gatt_access_ctxt *ctxt, void *arg)
 {
-    os_mbuf_append(ctxt->om,"hack melb",strlen("hack melb"));
+    const char * message = "Hello world";
+    os_mbuf_append(ctxt->om,"message",strlen("message"));
     return 0;
 }
 

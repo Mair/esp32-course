@@ -9,6 +9,6 @@
     "*.md": "markdown",
     "*.mdx": "tdx",
     "stdio.h": "c",
-    "*.inc": "c"
+    "*.ipp": "c"
   }
 }
