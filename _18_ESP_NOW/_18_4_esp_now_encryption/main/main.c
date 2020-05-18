@@ -12,9 +12,8 @@
 #include "esp_now.h"
 #include "driver/gpio.h"
 
-#define PIN_SWITCH 0
-
 #define TAG "ESP_NOW"
+#define PIN_SWITCH 0
 
 xQueueHandle message_received_queue;
 xSemaphoreHandle button_semaphore;
@@ -59,6 +58,7 @@ void on_sent(const uint8_t *mac_addr, esp_now_send_status_t status)
 
 void on_receive(const uint8_t *mac_addr, const uint8_t *data, int data_len)
 {
+  printf("len received %d\n", data_len);
   if (data_len != sizeof(payload_t))
   {
     ESP_LOGE(TAG, "received incorrect payload");
@@ -99,53 +99,44 @@ void message_received_task(void *params)
         esp_now_peer_info_t peer;
         memset(&peer, 0, sizeof(esp_now_peer_info_t));
         memcpy(peer.peer_addr, payload_ext.from_mac, 6);
+        memcpy(peer.lmk,"thisIsMyKeyEnc1",16);
+        peer.encrypt = true;
         esp_now_add_peer(&peer);
       }
       break;
     case SEND_MESSAGE:
       ESP_LOGI(TAG, "got message: %s from %s", payload_ext.payload.message, mac_to_str(buffer, payload_ext.from_mac));
+    break;
     default:
       break;
     }
   }
 }
 
-static void IRAM_ATTR gpio_isr_handler(void *args)
-{
-  xSemaphoreGiveFromISR(button_semaphore, pdFALSE);
-}
-
-void send_message_task(void *params)
+void send_message_task(void * params)
 {
   button_semaphore = xSemaphoreCreateBinary();
-  while (true)
+  while(true)
   {
+    xSemaphoreTake(button_semaphore,portMAX_DELAY);
     esp_now_peer_num_t peer_num;
     esp_now_get_peer_num(&peer_num);
-    printf("peer count %0d\n", peer_num.total_num);
     if(peer_num.total_num <= 1)
     {
-      ESP_LOGW(TAG,"no peers");
-      vTaskDelay(1000);
+      ESP_LOGW(TAG,"no peers yet");
       continue;
     }
-
-    if (xSemaphoreTake(button_semaphore, pdMS_TO_TICKS(5000)))
-    {
-      payload_t payload = {
-          .message_type = SEND_MESSAGE,
-          .message = "button clicked"};
-      ESP_ERROR_CHECK(esp_now_send(NULL, (uint8_t *)&payload, sizeof(payload_t)));
-      continue;
-    }
-    else
-    {
-      payload_t payload = {
-          .message_type = SEND_MESSAGE,
-          .message = "timer message"};
-      ESP_ERROR_CHECK(esp_now_send(NULL, (uint8_t *)&payload, sizeof(payload_t)));
-    }
+    payload_t payload = {
+      .message_type = SEND_MESSAGE,
+      .message = "BUTTON CLICKED"
+    };
+    ESP_ERROR_CHECK(esp_now_send(NULL,(uint8_t *)&payload, sizeof(payload_t)));
   }
+}
+
+static void IRAM_ATTR gpio_isr_handler(void *args)
+{
+  xSemaphoreGiveFromISR(button_semaphore,pdFALSE);
 }
 
 void app_main(void)
@@ -172,7 +163,7 @@ void app_main(void)
   TimerHandle_t timer_handler = xTimerCreate("broadcast", pdMS_TO_TICKS(10000), pdTRUE, NULL, broadcast_cb);
   xTimerStart(timer_handler, 0);
 
-  xTaskCreate(message_received_task, "message_received_task", 1024 * 2, NULL, 5, NULL);
+  xTaskCreate(message_received_task, "message_recived_task", 1024 * 2, NULL, 5, NULL);
   xTaskCreate(send_message_task, "send_message_task", 1024 * 2, NULL, 5, NULL);
 
   gpio_pad_select_gpio(PIN_SWITCH);

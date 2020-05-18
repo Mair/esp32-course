@@ -27,11 +27,13 @@ void app_main()
 
   char catKey[50];
   Cat cat;
-  size_t catSize;
+  size_t catSize = sizeof(Cat);
   for (int i = 0; i < 5; i++)
   {
     sprintf(catKey, "cat_%d", i);
     esp_err_t result = nvs_get_blob(handle, catKey, (void *)&cat, &catSize);
+    //printf("actual cat size=%d returned from NVS =%d\n", sizeof(Cat), catSize);
+    
     switch (result)
     {
     case ESP_ERR_NOT_FOUND:
