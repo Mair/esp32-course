@@ -1,3 +1,3 @@
-PROJECT_NAME := main
+PROJECT_NAME := menu
 
 include $(IDF_PATH)/make/project.mk
