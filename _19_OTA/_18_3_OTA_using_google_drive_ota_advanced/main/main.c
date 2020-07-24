@@ -12,6 +12,8 @@
 #include "driver/gpio.h"
 #include "protocol_examples_common.h"
 
+#include "esp_ota_ops.h"
+
 #define TAG "OTA"
 xSemaphoreHandle ota_semaphore;
 
