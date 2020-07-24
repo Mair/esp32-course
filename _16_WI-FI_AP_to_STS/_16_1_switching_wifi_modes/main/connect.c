@@ -76,13 +76,16 @@ void connectAP()
 void wifiInit(void *params)
 {
   ESP_ERROR_CHECK(nvs_flash_init());
+  // **** these 2 lines have moved from within the while loop to here. Its better here to ensure it only initializes once
+  tcpip_adapter_init();
+  ESP_ERROR_CHECK(esp_event_loop_init(event_handler, NULL));
   while (true)
   {
-
+    //*******the below 2 lines should be moved before the while loop
+    //tcpip_adapter_init();
+    //ESP_ERROR_CHECK(esp_event_loop_init(event_handler, NULL));
     if (xSemaphoreTake(initSemaphore, portMAX_DELAY))
     {
-      tcpip_adapter_init();
-      ESP_ERROR_CHECK(esp_event_loop_init(event_handler, NULL));
 
       nvs_handle_t nvs;
       nvs_open("wifiCreds", NVS_READWRITE, &nvs);
