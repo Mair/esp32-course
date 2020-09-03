@@ -55,6 +55,8 @@ void app_main()
     config.pull_up_en = false;
     config.pin_bit_mask = ((1ULL<<PIN_SWITCH) | (1ULL<<5));
 
+    gpio_config(&config);
+
     interputQueue = xQueueCreate(10, sizeof(int));
     xTaskCreate(buttonPushedTask, "buttonPushedTask", 2048, NULL, 1, NULL);
 
