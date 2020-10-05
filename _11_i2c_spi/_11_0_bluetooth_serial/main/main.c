@@ -2,7 +2,7 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "esp_log.h"
-
+///warning New version requires that you set the watchdog timer to a higher value
 void app_main(void)
 {
   while (true)
