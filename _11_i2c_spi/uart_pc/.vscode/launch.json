@@ -1,0 +1,46 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "ESP32 OpenOCD",
+      "type": "cppdbg",
+      "request": "launch",
+      "miDebuggerPath": "C:/esp/tools/.espressif/tools/xtensa-esp32-elf/esp32-2019r1-8.2.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gdb.exe",
+      "cwd": "${workspaceFolder}/build",
+      //change the name of the elf file as required
+      "program": "C:/Users/mairs/basic-uart/build/basic-uart.elf",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        },
+        {
+          "text": "file 'C:/Users/mairs/basic-uart/build/basic-uart.elf'"
+        },
+        {
+          "text": "target remote 127.0.0.1:3333"
+        },
+        {
+          "text": "set remote hardware-watchpoint-limit 2"
+        },
+        {
+          "text": "monitor reset halt"
+        },
+        {
+          "text": "flushregs"
+        }
+      ],
+      "externalConsole": false,
+
+      "logging": {
+        // "trace": true,
+        // "traceResponse": true,
+        //"engineLogging": true
+      }
+    }
+  ]
+}
