@@ -9,6 +9,7 @@ void timer_callback(void *param)
 {
   static bool on;
   on = !on;
+  
   gpio_set_level(GPIO_NUM_4, on);
 }
 

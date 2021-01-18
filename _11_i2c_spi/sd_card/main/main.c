@@ -82,6 +82,7 @@ void app_main(void)
             ESP_LOGE(TAG, "Failed to initialize the card (%d). "
                           "Make sure SD card lines have pull-up resistors in place.",
                      ret);
+            ESP_LOGE(TAG,"err name %s", esp_err_to_name(ret));
         }
         return;
     }

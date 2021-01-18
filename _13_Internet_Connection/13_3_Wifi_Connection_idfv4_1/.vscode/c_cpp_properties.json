@@ -1,7 +1,7 @@
 {
     "env": {
         "IDF_TOOLS": "c:/esp/tools/.espressif/tools",
-        "IDF_PATH": "c:/esp/esp-idf"
+        "IDF_PATH": "C:/esp/idfv_4_1/esp_idf"
     },
     "configurations": [
         {
@@ -48,10 +48,10 @@
                 "${IDF_PATH}/components/lwip/include/apps",
                 "${IDF_PATH}/components/esp_http_server/include",
                 "${IDF_PATH}/components/nghttp/nghttp2/third-party/http-parser",
-                "C:/esp/esp-idf/components/sdmmc/include",
-                "C:/esp/esp-idf/components/fatfs/vfs",
-                "C:/esp/esp-idf/components/fatfs/src",
-                "C:/esp/esp-idf/components/wear_levelling/include"
+                "C:/esp/esp-idf/components/newlib/platform_include",
+                "C:/esp/tools/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/xtensa-esp32-elf/include",
+                "C:/esp/idfv_4_1/esp_idf/components/esp_netif/include",
+                "C:/esp/idfv_4_1/esp_idf/components/esp_eth/include"
             ],
             "defines": [],
             "cStandard": "c11",
