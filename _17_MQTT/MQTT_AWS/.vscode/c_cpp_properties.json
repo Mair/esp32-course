@@ -3,7 +3,7 @@
         "IDF_TOOLS": "c:/esp/tools/.espressif/tools",
         "IDF_PATH": "c:/esp/esp-idf"
     },
-    "configurations": [
+    "configurations": [ 
         {
             "name": "esp32",
             "browse": {
