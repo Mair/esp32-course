@@ -1,0 +1,22 @@
+menu "WIFI CONNECT"
+
+config WIFI_SSID
+    string "SSID"
+    default "my ssid"
+
+config WIFI_PASSWORD
+    string "PASSWORD"
+    default "my password"  
+
+config AWS_IOT_THING_NAME
+    string "AWS IoT Thing Name"
+    default "ESP-AWS-IoT-Demo"
+    help
+        AWS IoT Thing Name
+
+config AWS_IOT_CLIENT_ID
+    string "AWS IoT Client ID"
+    default "ESP32-CLIENT"
+    help
+        AWS IoT Client Name
+endmenu
