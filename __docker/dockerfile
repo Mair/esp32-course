@@ -1,5 +1,0 @@
-FROM ubuntu:18.04
-
-RUN apt-get -qq update
-RUN apt-get install -y git wget flex bison gperf python python-pip python-setuptools cmake ninja-build ccache libffi-dev libssl-dev
-

@@ -48,7 +48,15 @@ void wifiInit()
   //ESP_ERROR_CHECK(esp_event_loop_init(event_handler, NULL));
   ESP_ERROR_CHECK(esp_netif_init());
   ESP_ERROR_CHECK(esp_event_loop_create_default());
-  esp_netif_create_default_wifi_sta();
+  esp_netif_t *netif_sta = esp_netif_create_default_wifi_sta();
+
+  // esp_netif_dhcpc_stop(netif_sta);
+  // esp_netif_ip_info_t ip_info;
+  // ip_info.ip.addr = ipaddr_addr("192.168.0.222");
+  // ip_info.gw.addr = ipaddr_addr("192.168.0.1");
+  // ip_info.netmask.addr = ipaddr_addr("255.255.255.0");
+  // esp_netif_set_ip_info(netif_sta, &ip_info);
+  // //esp_netif_dhcpc_start(netif_sta);
 
   wifi_init_config_t wifi_init_config = WIFI_INIT_CONFIG_DEFAULT();
   ESP_ERROR_CHECK(esp_wifi_init(&wifi_init_config));
