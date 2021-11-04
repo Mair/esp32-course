@@ -1,0 +1,1 @@
+openocd -f .\debug\ftdi_ft2322.cfg -f .\debug\esp-wroom-32.cfg
