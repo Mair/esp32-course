@@ -5,6 +5,46 @@
       "type": "espidf",
       "name": "Launch",
       "request": "launch"
+    },
+    {
+      "name": "ESP32 OpenOCD",
+      "type": "cppdbg",
+      "request": "launch",
+      "miDebuggerPath": "C:/esp/tools/tools/xtensa-esp32-elf/esp-2021r1-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gdb.exe",
+      "cwd": "${workspaceFolder}/build",
+      //change the name of the elf file as required
+      "program": "C:/projects/learnESP32/esp32-course/_4_debuging_with_openocd/sample_project/build/mair-template.elf",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        },
+        {
+          // there's a bug in vs code that prevents us from using ${workspaceFolder} variable.
+          // update the path as needed
+          "text": "file 'C:/projects/learnESP32/esp32-course/_4_debuging_with_openocd/sample_project/build/mair-template.elf'"
+        },
+        {
+          "text": "target remote 127.0.0.1:3333"
+        },
+        {
+          "text": "set remote hardware-watchpoint-limit 2"
+        },
+        {
+          "text": "monitor reset halt"
+        },
+        {
+          "text": "flushregs"
+        }
+      ],
+      "externalConsole": false,
+
+      "logging": {
+        // "trace": true,
+        // "traceResponse": true,
+        //"engineLogging": true
+      }
     }
   ]
 }
