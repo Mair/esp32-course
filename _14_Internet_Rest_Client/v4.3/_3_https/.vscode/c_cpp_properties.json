@@ -11,8 +11,7 @@
                 "${config:idf.espAdfPath}/components/**",
                 "${config:idf.espAdfPathWin}/components/**",
                 "${workspaceFolder}/**",
-                "C:/esp/esp-idf/components/esp_common/include",
-                "C:/esp/tools/tools/xtensa-esp32-elf/esp-2021r1-8.4.0/xtensa-esp32-elf/xtensa-esp32-elf/include"
+                "${workspaceFolder}/components/wifi",
             ],
             "browse": {
                 "path": [
