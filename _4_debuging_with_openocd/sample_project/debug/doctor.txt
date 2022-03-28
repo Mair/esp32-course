@@ -1,0 +1,193 @@
+
+---------------------------------------------- ESP-IDF Extension for Visual Studio Code report ---------------------------------------------
+OS win32 x64 10.0.22000 
+System environment variable IDF_PYTHON_ENV_PATH 
+ undefined 
+System environment variable PATH 
+ C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Go\bin;C:\Program Files\PuTTY\;C:\ProgramData\chocolatey\bin;C:\TDM-GCC-64\bin;C:\Program Files\Amazon\AWSCLIV2\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\CMake\bin;C:\Program Files\OpenJDK\openjdk-8u302-b08\bin;C:\Users\mairs\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\dotnet\;C:\Users\mairs\.cargo\bin;C:\Users\mairs\AppData\Local\Microsoft\WindowsApps;C:\Users\mairs\go\bin;C:\esp\tools\.espressif/tools/xtensa-esp32-elf-clang/esp-12.0.1-20210823-x86_64-pc-windows-msvc/bin/;C:\Program Files\mingw-w64\x86_64-7.3.0-posix-seh-rt_v5-rev2\mingw64\bin;C:\opencv\build\install\x64\mingw\bin;C:\Users\mairs\anaconda3\Scripts;C:\Users\mairs\AppData\Local\Android\Sdk\platform-tools;C:\Users\mairs\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\flutter\flutter\bin;C:\Users\mairs\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\mairs\.dotnet\tools 
+System environment variable PYTHON 
+ undefined 
+Visual Studio Code version 1.61.2 
+Visual Studio Code language en 
+Visual Studio Code shell C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe 
+ESP-IDF Extension version 1.2.0 
+---------------------------------------------------- Extension configuration settings ------------------------------------------------------
+ESP-ADF Path (idf.espAdfPath) ${env:ADF_PATH}
+ESP-IDF Path (idf.espIdfPath) c:\esp\esp-idf
+ESP-MDF Path (idf.espMdfPath) ${env:MDF_PATH}
+Custom extra paths (idf.customExtraPaths) c:\esp\tools\tools\xtensa-esp32-elf\esp-2021r1-8.4.0\xtensa-esp32-elf\bin;c:\esp\tools\tools\xtensa-esp32s2-elf\esp-2021r1-8.4.0\xtensa-esp32s2-elf\bin;c:\esp\tools\tools\xtensa-esp32s3-elf\esp-2021r1-8.4.0\xtensa-esp32s3-elf\bin;c:\esp\tools\tools\riscv32-esp-elf\esp-2021r1-8.4.0\riscv32-esp-elf\bin;c:\esp\tools\tools\esp32ulp-elf\2.28.51-esp-20191205\esp32ulp-elf-binutils\bin;c:\esp\tools\tools\esp32s2ulp-elf\2.28.51-esp-20191205\esp32s2ulp-elf-binutils\bin;c:\esp\tools\tools\cmake\3.16.4\bin;c:\esp\tools\tools\openocd-esp32\v0.10.0-esp32-20210902\openocd-esp32\bin;c:\esp\tools\tools\ninja\1.10.2;c:\esp\tools\tools\idf-exe\1.0.1;c:\esp\tools\tools\ccache\3.7;c:\esp\tools\tools\dfu-util\0.9\dfu-util-0.9-win64
+Custom extra vars (idf.customExtraVars) {"OPENOCD_SCRIPTS":"c:\\esp\\tools\\tools\\openocd-esp32\\v0.10.0-esp32-20210902/openocd-esp32/share/openocd/scripts","IDF_CCACHE_ENABLE":"1"}
+Virtual env Python Path (idf.pythonBinPath) c:\esp\tools\python_env\idf4.3_py3.8_env\Scripts\python.exe
+Serial port (idf.port) COM3
+OpenOCD Configs (idf.openOcdConfigs) interface/ftdi/esp32_devkitj_v1.cfg,target/esp32.cfg
+ESP-IDF Tools Path (idf.toolsPath) c:\esp\tools
+Git Path (idf.gitPath) c:\esp\tools\tools\idf-git\2.30.1\cmd\git.exe
+-------------------------------------------------------- Configurations access -------------------------------------------------------------
+Access to ESP-ADF Path (idf.espAdfPath) false
+Access to ESP-IDF Path (idf.espIdfPath) true
+Access to ESP-MDF Path (idf.espMdfPath) false
+Access to ESP-IDF Custom extra paths
+Access to c:\esp\tools\tools\xtensa-esp32-elf\esp-2021r1-8.4.0\xtensa-esp32-elf\bin: true
+Access to c:\esp\tools\tools\xtensa-esp32s2-elf\esp-2021r1-8.4.0\xtensa-esp32s2-elf\bin: true
+Access to c:\esp\tools\tools\xtensa-esp32s3-elf\esp-2021r1-8.4.0\xtensa-esp32s3-elf\bin: true
+Access to c:\esp\tools\tools\riscv32-esp-elf\esp-2021r1-8.4.0\riscv32-esp-elf\bin: true
+Access to c:\esp\tools\tools\esp32ulp-elf\2.28.51-esp-20191205\esp32ulp-elf-binutils\bin: true
+Access to c:\esp\tools\tools\esp32s2ulp-elf\2.28.51-esp-20191205\esp32s2ulp-elf-binutils\bin: true
+Access to c:\esp\tools\tools\cmake\3.16.4\bin: true
+Access to c:\esp\tools\tools\openocd-esp32\v0.10.0-esp32-20210902\openocd-esp32\bin: true
+Access to c:\esp\tools\tools\ninja\1.10.2: true
+Access to c:\esp\tools\tools\idf-exe\1.0.1: true
+Access to c:\esp\tools\tools\ccache\3.7: true
+Access to c:\esp\tools\tools\dfu-util\0.9\dfu-util-0.9-win64: true
+Access to Virtual env Python Path (idf.pythonBinPath) true
+Access to CMake in environment PATH undefined
+Access to Ninja in environment PATH undefined
+Access to ESP-IDF Tools Path (idf.toolsPath) true
+----------------------------------------------------------- Executables Versions -----------------------------------------------------------
+Git version 2.30.1.windows.1
+ESP-IDF version 4.3.1
+Python version 3.8.7
+Python's pip version 20.3.3
+-------------------------------------------------- Python packages in idf.pythonBinPath ----------------------------------------------------
+bitstring version: 3.1.9
+Brotli version: 1.0.9
+certifi version: 2021.10.8
+cffi version: 1.15.0
+charset-normalizer version: 2.0.7
+click version: 8.0.3
+colorama version: 0.4.4
+construct version: 2.10.54
+contextlib2 version: 21.6.0
+cryptography version: 3.4.8
+ecdsa version: 0.17.0
+esp-windows-curses version: 0.1
+Flask version: 0.12.5
+Flask-Compress version: 1.10.1
+Flask-SocketIO version: 2.9.6
+future version: 0.18.2
+gcovr version: 5.0
+gdbgui version: 0.13.2.0
+gevent version: 1.5.0
+greenlet version: 1.1.2
+idf-component-manager version: 0.3.2b0
+idna version: 3.3
+itsdangerous version: 2.0.1
+Jinja2 version: 3.0.2
+kconfiglib version: 13.7.1
+lxml version: 4.6.3
+MarkupSafe version: 2.0.1
+pip version: 20.3.3
+psutil version: 5.8.0
+pycparser version: 2.20
+pyelftools version: 0.27
+pygdbmi version: 0.9.0.2
+Pygments version: 2.10.0
+pyparsing version: 2.3.1
+pyserial version: 3.5
+python-engineio version: 3.14.2
+python-socketio version: 4.6.1
+pywin32 version: 302
+PyYAML version: 6.0
+reedsolo version: 1.5.4
+requests version: 2.26.0
+requests-toolbelt version: 0.9.1
+schema version: 0.7.4
+semantic-version version: 2.8.5
+setuptools version: 58.3.0
+six version: 1.16.0
+tqdm version: 4.62.3
+urllib3 version: 1.26.7
+websocket-client version: 1.2.1
+Werkzeug version: 0.16.1
+wheel version: 0.36.2
+windows-curses version: 2.2.0
+xmlrunner version: 1.7.7
+---------------------------------------------------- Check ESP-IDF python requirements.txt -------------------------------------------------
+Check ESP-IDF Python packages Python requirements from c:\esp\esp-idf\requirements.txt are satisfied.
+---------------------------------------------------- Check extension requirements.txt ------------------------------------------------------
+Check Extension Python packages Python requirements from c:\Users\mairs\.vscode\extensions\espressif.esp-idf-extension-1.2.0\requirements.txt are satisfied.
+---------------------------------------------------- Check ESP-IDF debug adapter requirements.txt ------------------------------------------
+Check Debug AdapterPython packages Python requirements from c:\Users\mairs\.vscode\extensions\espressif.esp-idf-extension-1.2.0\esp_debug_adapter\requirements.txt are satisfied.
+---------------------------------------------------- Visual Studio Code launch.json --------------------------------------------------------
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "espidf",
+      "name": "Launch",
+      "request": "launch"
+    },
+    {
+      "name": "ESP32 OpenOCD",
+      "type": "cppdbg",
+      "request": "launch",
+      "miDebuggerPath": "C:/esp/tools/tools/xtensa-esp32-elf/esp-2021r1-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gdb.exe",
+      "cwd": "${workspaceFolder}/build",
+      //change the name of the elf file as required
+      "program": "C:/projects/learnESP32/esp32-course/_4_debuging_with_openocd/sample_project/build/mair-template.elf",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        },
+        {
+          // there's a bug in vs code that prevents us from using ${workspaceFolder} variable.
+          // update the path as needed
+          "text": "file 'C:/projects/learnESP32/esp32-course/_4_debuging_with_openocd/sample_project/build/mair-template.elf'"
+        },
+        {
+          "text": "target remote 127.0.0.1:3333"
+        },
+        {
+          "text": "set remote hardware-watchpoint-limit 2"
+        },
+        {
+          "text": "monitor reset halt"
+        },
+        {
+          "text": "flushregs"
+        }
+      ],
+      "externalConsole": false,
+
+      "logging": {
+        // "trace": true,
+        // "traceResponse": true,
+        //"engineLogging": true
+      }
+    }
+  ]
+} 
+---------------------------------------------------- Visual Studio Code c_cpp_properties.json ----------------------------------------------
+{
+    "configurations": [
+        {
+            "name": "ESP-IDF",
+            "compilerPath": "c:\\esp\\tools\\tools\\xtensa-esp32-elf\\esp-2021r1-8.4.0\\xtensa-esp32-elf\\bin\\xtensa-esp32-elf-gcc.exe\r\nC:\\esp\\tools\\.espressif\\tools\\xtensa-esp32-elf-clang\\esp-12.0.1-20210823-x86_64-pc-windows-msvc\\bin\\xtensa-esp32-elf-gcc.exe",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "includePath": [
+                "${config:idf.espIdfPath}/components/**",
+                "${config:idf.espIdfPathWin}/components/**",
+                "${config:idf.espAdfPath}/components/**",
+                "${config:idf.espAdfPathWin}/components/**",
+                "${workspaceFolder}/**"
+            ],
+            "browse": {
+                "path": [
+                    "${config:idf.espIdfPath}/components",
+                    "${config:idf.espIdfPathWin}/components",
+                    "${config:idf.espAdfPath}/components/**",
+                    "${config:idf.espAdfPathWin}/components/**",
+                    "${workspaceFolder}"
+                ],
+                "limitSymbolsToIncludedHeaders": false
+            },
+            "compileCommands": "${workspaceFolder}/build/compile_commands.json"
+        }
+    ],
+    "version": 4
+} 
+--------------------------------------------------------------------------------------------------------------------------------------------
+
