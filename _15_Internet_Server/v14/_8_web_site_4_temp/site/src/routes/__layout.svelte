@@ -15,6 +15,8 @@
         <!-- Sidebar content here -->
         <li><a href="/">Home</a></li>
         <li><a href="./toggle-led">Toggle LED</a></li>
+        <li><a href="./ws-button-count">Web socket button count</a></li>
+        <li><a href="./ap-to-sta">AP to STA</a></li>
       </ul>
     </div>
   </div>
