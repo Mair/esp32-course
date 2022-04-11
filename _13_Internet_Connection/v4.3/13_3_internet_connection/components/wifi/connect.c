@@ -104,10 +104,11 @@ static void event_handler(void *event_handler_arg, esp_event_base_t event_base, 
     case SYSTEM_EVENT_STA_DISCONNECTED:
     {
         wifi_event_sta_disconnected_t *wifi_event_sta_disconnected = event_data;
-        //from wifi_err_reason_t
+        // from wifi_err_reason_t
         ESP_LOGW(TAG, "disconnected code %d: %s \n", wifi_event_sta_disconnected->reason,
                  print_disconnection_error(wifi_event_sta_disconnected->reason));
-        if(wifi_event_sta_disconnected->reason != WIFI_REASON_ASSOC_LEAVE){
+        if (wifi_event_sta_disconnected->reason != WIFI_REASON_ASSOC_LEAVE)
+        {
             esp_wifi_connect();
             break;
         }
@@ -132,7 +133,7 @@ static void event_handler(void *event_handler_arg, esp_event_base_t event_base, 
 
     case SYSTEM_EVENT_AP_STOP:
         ESP_LOGI(TAG, "AP Stopping...\n");
-         esp_netif_destroy(esp_netif);
+        esp_netif_destroy(esp_netif);
         break;
 
     default:
@@ -156,18 +157,19 @@ esp_err_t wifi_connect_sta(const char *ssid, const char *pass, int timeout)
 {
     Wifi_events = xEventGroupCreate();
     wifi_config_t wifi_config;
-    memset(&wifi_config,0,sizeof(wifi_config_t));
+    memset(&wifi_config, 0, sizeof(wifi_config_t));
     strncpy((char *)wifi_config.sta.ssid, ssid, sizeof(wifi_config.sta.ssid) - 1);
     strncpy((char *)wifi_config.sta.password, pass, sizeof(wifi_config.sta.password) - 1);
 
     esp_netif = esp_netif_create_default_wifi_sta();
 
-    esp_netif_dhcpc_stop(esp_netif);
-    esp_netif_ip_info_t ip_info;
-    ip_info.ip.addr = ipaddr_addr("192.168.0.222");
-    ip_info.gw.addr = ipaddr_addr("192.168.0.1");
-    ip_info.netmask.addr = ipaddr_addr("255.255.255.0");
-    esp_netif_set_ip_info(esp_netif, &ip_info);
+    // for static ip...
+    // esp_netif_dhcpc_stop(esp_netif);
+    // esp_netif_ip_info_t ip_info;
+    // ip_info.ip.addr = ipaddr_addr("192.168.0.222");
+    // ip_info.gw.addr = ipaddr_addr("192.168.0.1");
+    // ip_info.netmask.addr = ipaddr_addr("255.255.255.0");
+    // esp_netif_set_ip_info(esp_netif, &ip_info);
 
     ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
     ESP_ERROR_CHECK(esp_wifi_set_config(ESP_IF_WIFI_STA, &wifi_config));
@@ -182,7 +184,7 @@ esp_err_t wifi_connect_sta(const char *ssid, const char *pass, int timeout)
 void wifi_connect_ap(const char *ssid, const char *pass)
 {
     wifi_config_t wifi_config;
-    memset(&wifi_config,0,sizeof(wifi_config_t));
+    memset(&wifi_config, 0, sizeof(wifi_config_t));
     strncpy((char *)wifi_config.ap.ssid, ssid, sizeof(wifi_config.sta.ssid) - 1);
     strncpy((char *)wifi_config.ap.password, pass, sizeof(wifi_config.sta.password) - 1);
     wifi_config.ap.authmode = WIFI_AUTH_WPA_WPA2_PSK;
