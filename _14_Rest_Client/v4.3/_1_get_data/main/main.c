@@ -28,7 +28,7 @@ void fetch_quote()
         .method = HTTP_METHOD_GET,
         .event_handler = on_client_data};
     esp_http_client_handle_t client = esp_http_client_init(&esp_http_client_config);
-    esp_http_client_set_header(client, "Contnet-Type", "application/json");
+    esp_http_client_set_header(client, "Content-Type", "application/json");
     esp_err_t err = esp_http_client_perform(client);
     if (err == ESP_OK)
     {
