@@ -1,0 +1,10 @@
+{
+  "C_Cpp.intelliSenseEngine": "Default",
+  "idf.adapterTargetName": "esp32",
+  "idf.customExtraPaths": "c:\\esp\\tools\\tools\\xtensa-esp32-elf\\esp-2021r2-patch3-8.4.0\\xtensa-esp32-elf\\bin;c:\\esp\\tools\\tools\\xtensa-esp32s2-elf\\esp-2021r2-patch3-8.4.0\\xtensa-esp32s2-elf\\bin;c:\\esp\\tools\\tools\\xtensa-esp32s3-elf\\esp-2021r2-patch3-8.4.0\\xtensa-esp32s3-elf\\bin;c:\\esp\\tools\\tools\\riscv32-esp-elf\\esp-2021r2-patch3-8.4.0\\riscv32-esp-elf\\bin;c:\\esp\\tools\\tools\\esp32ulp-elf\\2.28.51-esp-20191205\\esp32ulp-elf-binutils\\bin;c:\\esp\\tools\\tools\\esp32s2ulp-elf\\2.28.51-esp-20191205\\esp32s2ulp-elf-binutils\\bin;c:\\esp\\tools\\tools\\cmake\\3.20.3\\bin;c:\\esp\\tools\\tools\\openocd-esp32\\v0.11.0-esp32-20211220\\openocd-esp32\\bin;c:\\esp\\tools\\tools\\ninja\\1.10.2;c:\\esp\\tools\\tools\\idf-exe\\1.0.3;c:\\esp\\tools\\tools\\ccache\\4.3\\ccache-4.3-windows-64;c:\\esp\\tools\\tools\\dfu-util\\0.9\\dfu-util-0.9-win64",
+  "idf.customExtraVars": "{\"OPENOCD_SCRIPTS\":\"c:\\\\esp\\\\tools\\\\tools\\\\openocd-esp32\\\\v0.11.0-esp32-20211220/openocd-esp32/share/openocd/scripts\",\"IDF_CCACHE_ENABLE\":\"1\"}",
+  "idf.espIdfPathWin": "c:\\esp\\esp-idf",
+  "idf.openOcdConfigs": ["board/esp32-wrover-kit-3.3v.cfg"],
+  "idf.pythonBinPathWin": "c:\\esp\\tools\\python_env\\idf4.4_py3.8_env\\Scripts\\python.exe",
+  "idf.toolsPathWin": "c:\\esp\\tools"
+}

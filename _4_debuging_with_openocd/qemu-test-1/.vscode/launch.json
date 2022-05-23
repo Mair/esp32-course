@@ -1,0 +1,21 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "gdb",
+      "gdbpath": "/opt/esp/tools/xtensa-esp32-elf/esp-2021r1-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gdb",
+      "request": "attach",
+      "name": "Attach to QEMU",
+      "executable": "${workspaceFolder}/build/qemu-test-1.elf",
+      "target": ":1234",
+      "remote": true,
+      "cwd": "${workspaceRoot}",
+      "valuesFormatting": "parseText"
+    },
+    {
+      "type": "espidf",
+      "name": "Launch",
+      "request": "launch"
+    }
+  ]
+}
