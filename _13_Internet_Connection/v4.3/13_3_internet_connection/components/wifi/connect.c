@@ -82,7 +82,10 @@ static char *print_disconnection_error(wifi_err_reason_t reason)
         return "WIFI_REASON_AP_TSF_RESET";
     case WIFI_REASON_ROAMING:
         return "WIFI_REASON_ROAMING";
+    default:
+        return "OTHER ERROR";
     }
+
     return "";
 }
 

@@ -7,13 +7,13 @@
 
 void app_main(void)
 {
-  gpio_pad_select_gpio(PIN);
+  // gpio_pad_select_gpio(PIN);
   gpio_set_direction(PIN, GPIO_MODE_OUTPUT);
   int isOn = 0;
   while (true)
   {
     isOn = !isOn;
     gpio_set_level(PIN, isOn);
-    vTaskDelay(1000 / portTICK_PERIOD_MS);    
+    vTaskDelay(1000 / portTICK_PERIOD_MS);
   }
 }
