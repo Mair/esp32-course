@@ -1,15 +1,14 @@
 #include <stdio.h>
-#include "driver/gpio.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
+#include "driver/gpio.h"
 
 #define PIN 2
 
 void app_main(void)
 {
-  // gpio_pad_select_gpio(PIN);
   gpio_set_direction(PIN, GPIO_MODE_OUTPUT);
-  int isOn = 0;
+  uint32_t isOn = 0;
   while (true)
   {
     isOn = !isOn;
