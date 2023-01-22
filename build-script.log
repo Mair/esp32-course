@@ -1,4 +1,143 @@
 
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_20_bluetooth_classic\_20_1_remote_logging
+✅ C:\projects\learnEsp32\esp32-course\_20_bluetooth_classic\_20_1_remote_logging succeeded
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_2_template\esp32_starter_template
+✅ C:\projects\learnEsp32\esp32-course\_2_template\esp32_starter_template succeeded
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_3_first_look\_2.1_logging.old
+✅ C:\projects\learnEsp32\esp32-course\_3_first_look\_2.1_logging.old succeeded
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_3_first_look\_2_0_blinky
+✅ C:\projects\learnEsp32\esp32-course\_3_first_look\_2_0_blinky succeeded
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_3_first_look\_2_1_logging
+✅ C:\projects\learnEsp32\esp32-course\_3_first_look\_2_1_logging succeeded
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_3_first_look\_2_2_delay
+✅ C:\projects\learnEsp32\esp32-course\_3_first_look\_2_2_delay succeeded
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_3_first_look\_2_3_random_generator-dice
+❌ Error compiling  C:\projects\learnEsp32\esp32-course\_3_first_look\_2_3_random_generator-dice
+➡️fixed
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_3_first_look\_2_4_capturing_input
+✅ C:\projects\learnEsp32\esp32-course\_3_first_look\_2_4_capturing_input succeeded
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_3_first_look\_2_5_using examples - chip data 1
+❌ Error compiling  C:\projects\learnEsp32\esp32-course\_3_first_look\_2_5_using examples - chip data 1
+➡️fixed
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_3_first_look\_2_6_using examples - chip data 2
+❌ Error compiling  C:\projects\learnEsp32\esp32-course\_3_first_look\_2_6_using examples - chip data 2
+➡️fixed
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_4_debuging_with_openocd\manual_debug
+✅ C:\projects\learnEsp32\esp32-course\_4_debuging_with_openocd\manual_debug succeeded
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_4_debuging_with_openocd\qemu-test-1
+✅ C:\projects\learnEsp32\esp32-course\_4_debuging_with_openocd\qemu-test-1 succeeded
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_4_debuging_with_openocd\sample_project
+✅ C:\projects\learnEsp32\esp32-course\_4_debuging_with_openocd\sample_project succeeded
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_5_working_with_c\_5_1_structure_and_pointer_primer
+✅ C:\projects\learnEsp32\esp32-course\_5_working_with_c\_5_1_structure_and_pointer_primer succeeded
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_5_working_with_c\_5_2_function_pointer
+✅ C:\projects\learnEsp32\esp32-course\_5_working_with_c\_5_2_function_pointer succeeded
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_5_working_with_c\_5_3_c_and_h_files
+✅ C:\projects\learnEsp32\esp32-course\_5_working_with_c\_5_3_c_and_h_files succeeded
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_5_working_with_c\_5_4_modules
+✅ C:\projects\learnEsp32\esp32-course\_5_working_with_c\_5_4_modules succeeded
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_6_a_timers\interrupt_timer
+❌ Error compiling  C:\projects\learnEsp32\esp32-course\_6_a_timers\interrupt_timer
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\freertos_timer
+❌ Error compiling  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\freertos_timer
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\high_resolution_timer
+❌ Error compiling  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\high_resolution_timer
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\_6_0_task_nofications_1
+✅ C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\_6_0_task_nofications_1 succeeded
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\_6_0_task_nofications_2
+✅ C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\_6_0_task_nofications_2 succeeded
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\_6_1_FreeRtos_tasks
+✅ C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\_6_1_FreeRtos_tasks succeeded
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\_6_2_FreeRtos_tasks_second_core
+✅ C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\_6_2_FreeRtos_tasks_second_core succeeded
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\_6_3_mutex_semaphore
+❌ Error compiling  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\_6_3_mutex_semaphore
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\_6_4_binary_semaphore
+❌ Error compiling  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\_6_4_binary_semaphore
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\_6_5_queues
+❌ Error compiling  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\_6_5_queues
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\_6_6_event_groups
+✅ C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\_6_6_event_groups succeeded
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_7_configuration_with_menuconfig\_7_1_menuconfig
+✅ C:\projects\learnEsp32\esp32-course\_7_configuration_with_menuconfig\_7_1_menuconfig succeeded
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_7_configuration_with_menuconfig\_7_2_custom_configuration
+❌ Error compiling  C:\projects\learnEsp32\esp32-course\_7_configuration_with_menuconfig\_7_2_custom_configuration
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_7_configuration_with_menuconfig\_7_2_custom_configuration_defaults
+❌ Error compiling  C:\projects\learnEsp32\esp32-course\_7_configuration_with_menuconfig\_7_2_custom_configuration_defaults
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_8_understanding_memory\psram
+✅ C:\projects\learnEsp32\esp32-course\_8_understanding_memory\psram succeeded
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_8_understanding_memory\_8_1_sram
+❌ Error compiling  C:\projects\learnEsp32\esp32-course\_8_understanding_memory\_8_1_sram
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_8_understanding_memory\_8_2_sram_dynamic
+❌ Error compiling  C:\projects\learnEsp32\esp32-course\_8_understanding_memory\_8_2_sram_dynamic
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_8_understanding_memory\_8_3_sram_stack
+❌ Error compiling  C:\projects\learnEsp32\esp32-course\_8_understanding_memory\_8_3_sram_stack
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_8_understanding_memory\_8_4_flash
+✅ C:\projects\learnEsp32\esp32-course\_8_understanding_memory\_8_4_flash succeeded
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_8_understanding_memory\_8_4_flash_old
+✅ C:\projects\learnEsp32\esp32-course\_8_understanding_memory\_8_4_flash_old succeeded
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_9_storage\_9_1_file_in_code_flash
+✅ C:\projects\learnEsp32\esp32-course\_9_storage\_9_1_file_in_code_flash succeeded
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_9_storage\_9_2_nvs
+❌ Error compiling  C:\projects\learnEsp32\esp32-course\_9_storage\_9_2_nvs
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_9_storage\_9_3_nvs_custom_partition
+❌ Error compiling  C:\projects\learnEsp32\esp32-course\_9_storage\_9_3_nvs_custom_partition
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_9_storage\_9_4_nvs_struct
+✅ C:\projects\learnEsp32\esp32-course\_9_storage\_9_4_nvs_struct succeeded
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_9_storage\_9_5_spiffs-1_with_flash
+❌ Error compiling  C:\projects\learnEsp32\esp32-course\_9_storage\_9_5_spiffs-1_with_flash
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_9_storage\_9_6_spiffs-2_loop_files
+❌ Error compiling  C:\projects\learnEsp32\esp32-course\_9_storage\_9_6_spiffs-2_loop_files
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_9_storage\_9_7_spiffs-3_Updating_files
+❌ Error compiling  C:\projects\learnEsp32\esp32-course\_9_storage\_9_7_spiffs-3_Updating_files
+
+attempting to build  C:\projects\learnEsp32\esp32-course\_9_storage\_9_8_spiffs_crud
+✅ C:\projects\learnEsp32\esp32-course\_9_storage\_9_8_spiffs_crud succeeded
+
 attempting to build  C:\projects\learnEsp32\esp32-course\_10_gpio\_10_10_Touch
 ✅ C:\projects\learnEsp32\esp32-course\_10_gpio\_10_10_Touch succeeded
 
@@ -304,139 +443,3 @@ attempting to build  C:\projects\learnEsp32\esp32-course\_19_OTA\_18_2_OTA_using
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_19_OTA\_18_3_OTA_using_google_drive_ota_advanced
 ❌ Error compiling  C:\projects\learnEsp32\esp32-course\_19_OTA\_18_3_OTA_using_google_drive_ota_advanced
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_20_bluetooth_classic\_20_1_remote_logging
-✅ C:\projects\learnEsp32\esp32-course\_20_bluetooth_classic\_20_1_remote_logging succeeded
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_2_template\esp32_starter_template
-✅ C:\projects\learnEsp32\esp32-course\_2_template\esp32_starter_template succeeded
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_3_first_look\_2.1_logging.old
-✅ C:\projects\learnEsp32\esp32-course\_3_first_look\_2.1_logging.old succeeded
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_3_first_look\_2_0_blinky
-✅ C:\projects\learnEsp32\esp32-course\_3_first_look\_2_0_blinky succeeded
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_3_first_look\_2_1_logging
-✅ C:\projects\learnEsp32\esp32-course\_3_first_look\_2_1_logging succeeded
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_3_first_look\_2_2_delay
-✅ C:\projects\learnEsp32\esp32-course\_3_first_look\_2_2_delay succeeded
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_3_first_look\_2_3_random_generator-dice
-❌ Error compiling  C:\projects\learnEsp32\esp32-course\_3_first_look\_2_3_random_generator-dice
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_3_first_look\_2_4_capturing_input
-✅ C:\projects\learnEsp32\esp32-course\_3_first_look\_2_4_capturing_input succeeded
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_3_first_look\_2_5_using examples - chip data 1
-❌ Error compiling  C:\projects\learnEsp32\esp32-course\_3_first_look\_2_5_using examples - chip data 1
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_3_first_look\_2_6_using examples - chip data 2
-❌ Error compiling  C:\projects\learnEsp32\esp32-course\_3_first_look\_2_6_using examples - chip data 2
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_4_debuging_with_openocd\manual_debug
-✅ C:\projects\learnEsp32\esp32-course\_4_debuging_with_openocd\manual_debug succeeded
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_4_debuging_with_openocd\qemu-test-1
-✅ C:\projects\learnEsp32\esp32-course\_4_debuging_with_openocd\qemu-test-1 succeeded
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_4_debuging_with_openocd\sample_project
-✅ C:\projects\learnEsp32\esp32-course\_4_debuging_with_openocd\sample_project succeeded
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_5_working_with_c\_5_1_structure_and_pointer_primer
-✅ C:\projects\learnEsp32\esp32-course\_5_working_with_c\_5_1_structure_and_pointer_primer succeeded
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_5_working_with_c\_5_2_function_pointer
-✅ C:\projects\learnEsp32\esp32-course\_5_working_with_c\_5_2_function_pointer succeeded
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_5_working_with_c\_5_3_c_and_h_files
-✅ C:\projects\learnEsp32\esp32-course\_5_working_with_c\_5_3_c_and_h_files succeeded
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_5_working_with_c\_5_4_modules
-✅ C:\projects\learnEsp32\esp32-course\_5_working_with_c\_5_4_modules succeeded
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_6_a_timers\interrupt_timer
-❌ Error compiling  C:\projects\learnEsp32\esp32-course\_6_a_timers\interrupt_timer
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\freertos_timer
-❌ Error compiling  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\freertos_timer
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\high_resolution_timer
-❌ Error compiling  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\high_resolution_timer
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\_6_0_task_nofications_1
-✅ C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\_6_0_task_nofications_1 succeeded
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\_6_0_task_nofications_2
-✅ C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\_6_0_task_nofications_2 succeeded
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\_6_1_FreeRtos_tasks
-✅ C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\_6_1_FreeRtos_tasks succeeded
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\_6_2_FreeRtos_tasks_second_core
-✅ C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\_6_2_FreeRtos_tasks_second_core succeeded
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\_6_3_mutex_semaphore
-❌ Error compiling  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\_6_3_mutex_semaphore
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\_6_4_binary_semaphore
-❌ Error compiling  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\_6_4_binary_semaphore
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\_6_5_queues
-❌ Error compiling  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\_6_5_queues
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\_6_6_event_groups
-✅ C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\_6_6_event_groups succeeded
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_7_configuration_with_menuconfig\_7_1_menuconfig
-✅ C:\projects\learnEsp32\esp32-course\_7_configuration_with_menuconfig\_7_1_menuconfig succeeded
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_7_configuration_with_menuconfig\_7_2_custom_configuration
-❌ Error compiling  C:\projects\learnEsp32\esp32-course\_7_configuration_with_menuconfig\_7_2_custom_configuration
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_7_configuration_with_menuconfig\_7_2_custom_configuration_defaults
-❌ Error compiling  C:\projects\learnEsp32\esp32-course\_7_configuration_with_menuconfig\_7_2_custom_configuration_defaults
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_8_understanding_memory\psram
-✅ C:\projects\learnEsp32\esp32-course\_8_understanding_memory\psram succeeded
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_8_understanding_memory\_8_1_sram
-❌ Error compiling  C:\projects\learnEsp32\esp32-course\_8_understanding_memory\_8_1_sram
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_8_understanding_memory\_8_2_sram_dynamic
-❌ Error compiling  C:\projects\learnEsp32\esp32-course\_8_understanding_memory\_8_2_sram_dynamic
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_8_understanding_memory\_8_3_sram_stack
-❌ Error compiling  C:\projects\learnEsp32\esp32-course\_8_understanding_memory\_8_3_sram_stack
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_8_understanding_memory\_8_4_flash
-✅ C:\projects\learnEsp32\esp32-course\_8_understanding_memory\_8_4_flash succeeded
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_8_understanding_memory\_8_4_flash_old
-✅ C:\projects\learnEsp32\esp32-course\_8_understanding_memory\_8_4_flash_old succeeded
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_9_storage\_9_1_file_in_code_flash
-✅ C:\projects\learnEsp32\esp32-course\_9_storage\_9_1_file_in_code_flash succeeded
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_9_storage\_9_2_nvs
-❌ Error compiling  C:\projects\learnEsp32\esp32-course\_9_storage\_9_2_nvs
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_9_storage\_9_3_nvs_custom_partition
-❌ Error compiling  C:\projects\learnEsp32\esp32-course\_9_storage\_9_3_nvs_custom_partition
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_9_storage\_9_4_nvs_struct
-✅ C:\projects\learnEsp32\esp32-course\_9_storage\_9_4_nvs_struct succeeded
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_9_storage\_9_5_spiffs-1_with_flash
-❌ Error compiling  C:\projects\learnEsp32\esp32-course\_9_storage\_9_5_spiffs-1_with_flash
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_9_storage\_9_6_spiffs-2_loop_files
-❌ Error compiling  C:\projects\learnEsp32\esp32-course\_9_storage\_9_6_spiffs-2_loop_files
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_9_storage\_9_7_spiffs-3_Updating_files
-❌ Error compiling  C:\projects\learnEsp32\esp32-course\_9_storage\_9_7_spiffs-3_Updating_files
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_9_storage\_9_8_spiffs_crud
-✅ C:\projects\learnEsp32\esp32-course\_9_storage\_9_8_spiffs_crud succeeded
-
