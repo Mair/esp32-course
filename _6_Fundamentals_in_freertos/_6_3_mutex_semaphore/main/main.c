@@ -5,7 +5,8 @@
 #include "freertos/task.h"
 #include "freertos/semphr.h"
 
-xSemaphoreHandle mutexBus;
+SemaphoreHandle_t mutexBus;
+// xSemaphoreHandle mutexBus;
 
 void writeToBus(char *message)
 {

@@ -4,8 +4,10 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "freertos/semphr.h"
+#include "freertos/queue.h"
 
-xQueueHandle queue;
+QueueHandle_t queue;
+// xQueueHandle queue;
 
 void listenForHTTP(void *params)
 {
@@ -15,13 +17,13 @@ void listenForHTTP(void *params)
     count++;
     printf("received http message\n");
     long ok = xQueueSend(queue, &count, 1000 / portTICK_PERIOD_MS);
-    if(ok) 
+    if (ok)
     {
       printf("added message to queue\n");
-    } 
-    else 
+    }
+    else
     {
-       printf("failed to add message to queue\n");
+      printf("failed to add message to queue\n");
     }
 
     vTaskDelay(1000 / portTICK_PERIOD_MS);
@@ -31,9 +33,9 @@ void listenForHTTP(void *params)
 void task1(void *params)
 {
   while (true)
-  { 
+  {
     int rxInt;
-    if(xQueueReceive(queue, &rxInt , 5000 / portTICK_PERIOD_MS))
+    if (xQueueReceive(queue, &rxInt, 5000 / portTICK_PERIOD_MS))
     {
       printf("doing something with http %d\n", rxInt);
     }
