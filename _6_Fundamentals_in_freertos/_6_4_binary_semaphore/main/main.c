@@ -5,7 +5,8 @@
 #include "freertos/task.h"
 #include "freertos/semphr.h"
 
-xSemaphoreHandle binSemaphore;
+SemaphoreHandle_t binSemaphore;
+// xSemaphoreHandle binSemaphore;
 
 void listenForHTTP(void *params)
 {
