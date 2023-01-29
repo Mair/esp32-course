@@ -7,7 +7,7 @@
 
 void app_main(void)
 {
-  gpio_pad_select_gpio(PIN);
+  //gpio_pad_select_gpio(PIN);
   gpio_set_direction(PIN, GPIO_MODE_OUTPUT);
   int isOn = 0;
   while (true)

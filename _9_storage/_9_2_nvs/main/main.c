@@ -27,7 +27,7 @@ void app_main()
     ESP_LOGE(TAG, "Value not set yet");
     break;
   case ESP_OK:
-    ESP_LOGI(TAG, "Value is %d", val);
+    ESP_LOGI(TAG, "Value is %ld", val);
     break;
   default:
     ESP_LOGE(TAG, "Error (%s) opening NVS handle!\n", esp_err_to_name(result));
