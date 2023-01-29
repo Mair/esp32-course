@@ -12,14 +12,15 @@ void aTask(void *param)
   int stackmem = uxTaskGetStackHighWaterMark(NULL);
   ESP_LOGI(TAG, "stack space = %d", stackmem);
 
-  char buffer [6500];
-  memset(&buffer,1,sizeof(buffer));
+  char buffer[6500];
+  memset(&buffer, 1, sizeof(buffer));
 
-  while(true) vTaskDelay(1000);
+  while (true)
+    vTaskDelay(1000);
 }
 void app_main()
 {
-  ESP_LOGI(TAG, "xPortGetFreeHeapSize %dk = DRAM", xPortGetFreeHeapSize());
+  ESP_LOGI(TAG, "xPortGetFreeHeapSize %ld = DRAM", xPortGetFreeHeapSize());
 
   int DRam = heap_caps_get_free_size(MALLOC_CAP_8BIT);
   int IRam = heap_caps_get_free_size(MALLOC_CAP_32BIT) - heap_caps_get_free_size(MALLOC_CAP_8BIT);
@@ -31,7 +32,6 @@ void app_main()
 
   int stackmem = uxTaskGetStackHighWaterMark(NULL);
   ESP_LOGI(TAG, "stack space = %d", stackmem);
-  
-  xTaskCreate(&aTask,"a task",8000,NULL,1, NULL);
-  
+
+  xTaskCreate(&aTask, "a task", 8000, NULL, 1, NULL);
 }

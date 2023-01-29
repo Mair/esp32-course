@@ -8,11 +8,11 @@
 
 void app_main()
 {
-  ESP_LOGI(TAG, "xPortGetFreeHeapSize %dk = DRAM", xPortGetFreeHeapSize());
+  ESP_LOGI(TAG, "xPortGetFreeHeapSize %ld = DRAM", xPortGetFreeHeapSize());
 
   int DRam = heap_caps_get_free_size(MALLOC_CAP_8BIT);
   int IRam = heap_caps_get_free_size(MALLOC_CAP_32BIT) - heap_caps_get_free_size(MALLOC_CAP_8BIT);
 
   ESP_LOGI(TAG, "DRAM \t\t %d", DRam);
-  ESP_LOGI(TAG, "IRam \t\t %d", IRam);  
+  ESP_LOGI(TAG, "IRam \t\t %d", IRam);
 }

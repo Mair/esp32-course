@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 #include "esp_log.h"
 
 #define TAG "CONFIG"
@@ -20,12 +21,12 @@ void app_main(void)
   int option = 0;
 
 #ifdef CONFIG_OPTION_1
-      option = 1;
+  option = 1;
 #elif CONFIG_OPTION_2
-      option = 2;
+  option = 2;
 #else
-      option = 3;
+  option = 3;
 #endif
 
- ESP_LOGI(TAG, "MY_OPTION %d", option);
+  ESP_LOGI(TAG, "MY_OPTION %d", option);
 }

@@ -9,7 +9,7 @@
 
 void app_main()
 {
-  ESP_LOGI(TAG, "xPortGetFreeHeapSize %dk = DRAM", xPortGetFreeHeapSize());
+  ESP_LOGI(TAG, "xPortGetFreeHeapSize %ld = DRAM", xPortGetFreeHeapSize());
 
   int DRam = heap_caps_get_free_size(MALLOC_CAP_8BIT);
   int IRam = heap_caps_get_free_size(MALLOC_CAP_32BIT) - heap_caps_get_free_size(MALLOC_CAP_8BIT);
@@ -20,13 +20,12 @@ void app_main()
   ESP_LOGI(TAG, "free = %d", free);
 
   void *memoryPointer = malloc(free);
-  if(memoryPointer == NULL)
+  if (memoryPointer == NULL)
   {
     ESP_LOGE(TAG, "Failed to allocate memory");
-  } 
-  else 
-  {
-    ESP_LOGI(TAG,"Allocated memory");
   }
-  
+  else
+  {
+    ESP_LOGI(TAG, "Allocated memory");
+  }
 }

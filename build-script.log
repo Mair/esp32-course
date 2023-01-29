@@ -56,12 +56,15 @@ attempting to build  C:\projects\learnEsp32\esp32-course\_5_working_with_c\_5_4_
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_6_a_timers\interrupt_timer
 ❌ Error compiling  C:\projects\learnEsp32\esp32-course\_6_a_timers\interrupt_timer
+➡️fixed
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\freertos_timer
 ❌ Error compiling  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\freertos_timer
+➡️fixed
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\high_resolution_timer
 ❌ Error compiling  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\high_resolution_timer
+➡️fixed
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\_6_0_task_nofications_1
 ✅ C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\_6_0_task_nofications_1 succeeded
@@ -77,12 +80,15 @@ attempting to build  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_free
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\_6_3_mutex_semaphore
 ❌ Error compiling  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\_6_3_mutex_semaphore
+➡️fixed
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\_6_4_binary_semaphore
 ❌ Error compiling  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\_6_4_binary_semaphore
+➡️fixed
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\_6_5_queues
 ❌ Error compiling  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\_6_5_queues
+➡️fixed
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\_6_6_event_groups
 ✅ C:\projects\learnEsp32\esp32-course\_6_Fundamentals_in_freertos\_6_6_event_groups succeeded
@@ -92,21 +98,26 @@ attempting to build  C:\projects\learnEsp32\esp32-course\_7_configuration_with_m
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_7_configuration_with_menuconfig\_7_2_custom_configuration
 ❌ Error compiling  C:\projects\learnEsp32\esp32-course\_7_configuration_with_menuconfig\_7_2_custom_configuration
+➡️fixed
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_7_configuration_with_menuconfig\_7_2_custom_configuration_defaults
 ❌ Error compiling  C:\projects\learnEsp32\esp32-course\_7_configuration_with_menuconfig\_7_2_custom_configuration_defaults
+➡️fixed
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_8_understanding_memory\psram
 ✅ C:\projects\learnEsp32\esp32-course\_8_understanding_memory\psram succeeded
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_8_understanding_memory\_8_1_sram
 ❌ Error compiling  C:\projects\learnEsp32\esp32-course\_8_understanding_memory\_8_1_sram
+➡️fixed
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_8_understanding_memory\_8_2_sram_dynamic
 ❌ Error compiling  C:\projects\learnEsp32\esp32-course\_8_understanding_memory\_8_2_sram_dynamic
+➡️fixed
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_8_understanding_memory\_8_3_sram_stack
 ❌ Error compiling  C:\projects\learnEsp32\esp32-course\_8_understanding_memory\_8_3_sram_stack
+➡️fixed
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_8_understanding_memory\_8_4_flash
 ✅ C:\projects\learnEsp32\esp32-course\_8_understanding_memory\_8_4_flash succeeded
@@ -119,21 +130,26 @@ attempting to build  C:\projects\learnEsp32\esp32-course\_9_storage\_9_1_file_in
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_9_storage\_9_2_nvs
 ❌ Error compiling  C:\projects\learnEsp32\esp32-course\_9_storage\_9_2_nvs
+➡️fixed
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_9_storage\_9_3_nvs_custom_partition
 ❌ Error compiling  C:\projects\learnEsp32\esp32-course\_9_storage\_9_3_nvs_custom_partition
+➡️fixed
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_9_storage\_9_4_nvs_struct
 ✅ C:\projects\learnEsp32\esp32-course\_9_storage\_9_4_nvs_struct succeeded
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_9_storage\_9_5_spiffs-1_with_flash
 ❌ Error compiling  C:\projects\learnEsp32\esp32-course\_9_storage\_9_5_spiffs-1_with_flash
+➡️fixed
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_9_storage\_9_6_spiffs-2_loop_files
 ❌ Error compiling  C:\projects\learnEsp32\esp32-course\_9_storage\_9_6_spiffs-2_loop_files
+➡️fixed
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_9_storage\_9_7_spiffs-3_Updating_files
 ❌ Error compiling  C:\projects\learnEsp32\esp32-course\_9_storage\_9_7_spiffs-3_Updating_files
+➡️fixed
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_9_storage\_9_8_spiffs_crud
 ✅ C:\projects\learnEsp32\esp32-course\_9_storage\_9_8_spiffs_crud succeeded
