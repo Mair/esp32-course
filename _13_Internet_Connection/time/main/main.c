@@ -22,7 +22,7 @@ void print_time(long time, const char *message)
 
 void on_got_time(struct timeval *tv)
 {
-  printf("secs %ld\n", tv->tv_sec);
+  printf("secs %lld\n", tv->tv_sec);
   print_time(tv->tv_sec, "time at callback");
 
   for (int i = 0; i < 5; i++)
