@@ -80,7 +80,12 @@ void app_main(void)
   uart_set_pin(UART_NUM_1, TXD_PIN, RXD_PIN, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE);
   uart_driver_install(UART_NUM_1, RX_BUF_SIZE, TX_BUF_SIZE, 20, &uart_queue, 0);
 
-  uart_enable_pattern_det_intr(UART_NUM_1, '+', PATTERN_LEN, 10000, 10, 10);
+  // IDF V4.X
+  // uart_enable_pattern_det_intr(UART_NUM_1, '+', PATTERN_LEN, 10000, 10, 10);
+
+  // IDF V5.X
+  uart_enable_pattern_det_baud_intr(UART_NUM_1, '+', PATTERN_LEN, 10000, 10, 10);
+
   uart_pattern_queue_reset(UART_NUM_1, 20);
   xTaskCreate(uart_event_task, "uart_event_task", 2048, NULL, 10, NULL);
 }
