@@ -159,21 +159,27 @@ attempting to build  C:\projects\learnEsp32\esp32-course\_10_gpio\_10_10_Touch
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_10_gpio\_10_1_GPIO_Output
 ❌ Error compiling  C:\projects\learnEsp32\esp32-course\_10_gpio\_10_1_GPIO_Output
+➡️fixed
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_10_gpio\_10_2_Input
 ❌ Error compiling  C:\projects\learnEsp32\esp32-course\_10_gpio\_10_2_Input
+➡️fixed
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_10_gpio\_10_3_Input_interupt
 ❌ Error compiling  C:\projects\learnEsp32\esp32-course\_10_gpio\_10_3_Input_interupt
+➡️fixed
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_10_gpio\_10_4_simple_debounce
 ❌ Error compiling  C:\projects\learnEsp32\esp32-course\_10_gpio\_10_4_simple_debounce
+➡️fixed
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_10_gpio\_10_5_GPIO_Config
 ❌ Error compiling  C:\projects\learnEsp32\esp32-course\_10_gpio\_10_5_GPIO_Config
+➡️fixed
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_10_gpio\_10_6_DAC
 ❌ Error compiling  C:\projects\learnEsp32\esp32-course\_10_gpio\_10_6_DAC
+➡️fixed
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_10_gpio\_10_7_PWM_With_LEDC
 ✅ C:\projects\learnEsp32\esp32-course\_10_gpio\_10_7_PWM_With_LEDC succeeded
@@ -183,24 +189,16 @@ attempting to build  C:\projects\learnEsp32\esp32-course\_10_gpio\_10_8_ADC
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_10_gpio\_10_9_hall_sensor
 ❌ Error compiling  C:\projects\learnEsp32\esp32-course\_10_gpio\_10_9_hall_sensor
+➡️fixed
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_11_i2c_spi\11_2_SPI_SDD1306
 ❌ Error compiling  C:\projects\learnEsp32\esp32-course\_11_i2c_spi\11_2_SPI_SDD1306
+✏️Partially ➡️fixed
 
-attempting to build  C:\projects\learnEsp32\esp32-course\_11_i2c_spi\bme280\bme280
-❌ Error compiling  C:\projects\learnEsp32\esp32-course\_11_i2c_spi\bme280\bme280
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_11_i2c_spi\bmp280
-❌ Error compiling  C:\projects\learnEsp32\esp32-course\_11_i2c_spi\bmp280
-
-attempting to build  C:\projects\learnEsp32\esp32-course\_11_i2c_spi\i2s_adc_dac
-❌ Error compiling  C:\projects\learnEsp32\esp32-course\_11_i2c_spi\i2s_adc_dac
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_11_i2c_spi\sd_card
 ❌ Error compiling  C:\projects\learnEsp32\esp32-course\_11_i2c_spi\sd_card
 
-attempting to build  C:\projects\learnEsp32\esp32-course\_11_i2c_spi\serial_NEO_N8M_GPS
-❌ Error compiling  C:\projects\learnEsp32\esp32-course\_11_i2c_spi\serial_NEO_N8M_GPS
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_11_i2c_spi\uart_basic
 ✅ C:\projects\learnEsp32\esp32-course\_11_i2c_spi\uart_basic succeeded

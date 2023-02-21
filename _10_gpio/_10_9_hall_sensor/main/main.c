@@ -9,8 +9,7 @@ void app_main()
 {
     while (1)
     {
-        printf("Hall Sens: %d\n", hall_sens_read());
+        printf("Hall Sens: %ld\n", hall_sens_read());
         vTaskDelay(100 / portTICK_PERIOD_MS);
     }
-    
 }

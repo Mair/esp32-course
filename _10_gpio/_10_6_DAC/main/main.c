@@ -7,5 +7,5 @@
 void app_main()
 {
     dac_output_enable(DAC_CHANNEL_1);
-    dac_out_voltage(DAC_CHANNEL_1,195);
+    dac_output_voltage(DAC_CHANNEL_1, 200);
 }

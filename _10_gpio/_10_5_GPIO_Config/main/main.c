@@ -47,14 +47,8 @@ void app_main()
     // gpio_pullup_dis(PIN_SWITCH);
     // gpio_set_intr_type(PIN_SWITCH, GPIO_INTR_POSEDGE);
 
-    gpio_config_t config;
-    config.intr_type = GPIO_INTR_POSEDGE;
-    config.mode = GPIO_MODE_INPUT;
-    config.pull_down_en = true;
-    config.pull_up_en = false;
-    config.pin_bit_mask = ((1ULL << PIN_SWITCH) | (1ULL << 5));
-
-    gpio_config(&config);
+ 
+ 
 
     interruptQueue = xQueueCreate(10, sizeof(int));
     xTaskCreate(buttonPushedTask, "buttonPushedTask", 2048, NULL, 1, NULL);
