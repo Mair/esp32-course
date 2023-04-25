@@ -198,7 +198,7 @@ attempting to build  C:\projects\learnEsp32\esp32-course\_11_i2c_spi\11_2_SPI_SD
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_11_i2c_spi\sd_card
 ❌ Error compiling  C:\projects\learnEsp32\esp32-course\_11_i2c_spi\sd_card
-
+➡️fixed
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_11_i2c_spi\uart_basic
 ✅ C:\projects\learnEsp32\esp32-course\_11_i2c_spi\uart_basic succeeded
@@ -208,6 +208,7 @@ attempting to build  C:\projects\learnEsp32\esp32-course\_11_i2c_spi\uart_pc
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_11_i2c_spi\uart_pc_with_queue
 ❌ Error compiling  C:\projects\learnEsp32\esp32-course\_11_i2c_spi\uart_pc_with_queue
+➡️fixed
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_11_i2c_spi\_11_0_bluetooth_serial
 ✅ C:\projects\learnEsp32\esp32-course\_11_i2c_spi\_11_0_bluetooth_serial succeeded
@@ -223,6 +224,7 @@ attempting to build  C:\projects\learnEsp32\esp32-course\_12_sleeping\_1_light_s
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_12_sleeping\_2_light_GPIO
 ❌ Error compiling  C:\projects\learnEsp32\esp32-course\_12_sleeping\_2_light_GPIO
+
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_12_sleeping\_3_deep_sleep_timer
 ✅ C:\projects\learnEsp32\esp32-course\_12_sleeping\_3_deep_sleep_timer succeeded
