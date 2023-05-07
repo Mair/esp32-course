@@ -1,48 +1,68 @@
+# NTP Time
+## note below the changes for IDF V5
 
-# ESP32 Starter template
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include "esp_sntp.h"
+#include "esp_wifi.h"
+#include "nvs_flash.h"
+#include "protocol_examples_common.h"
+#include "esp_log.h"
 
-on your command line run
-```
-npx create-esp32-app
-```
+#define TAG "NTP_TIME"
 
-## Quick overview
+void print_time(long time, const char *message)
+{
+  setenv("TZ", "EST-10EDT-11,M10.5.0/02:00:00,M3.5.0/03:00:00", 1);
+  tzset();
+  struct tm *timeinfo = localtime(&time);
 
-This template can be used as is but, its intended as a quick start for the students learning the ESP32-IDF through my course [https://learnesp32.com](https://learnesp32.com)
+  char buffer[50];
+  strftime(buffer, sizeof(buffer), "%c", timeinfo);
+  ESP_LOGI(TAG, "message: %s: %s", message, buffer);
+}
 
-## prerequisites
+void on_got_time(struct timeval *tv)
+{
+  printf("secs %lld\n", tv->tv_sec);
+  print_time(tv->tv_sec, "time at callback");
 
-1. You will need to have [node](https://nodejs.org) installed.
-2. The esp-idf must be set up. you can follow the instructions in my course (free of charge) on the [Setting up Your Environment](https://www.learnesp32.com/2_introduction) module or follow the [official documentation](https://docs.espressif.com/projects/esp-idf/en/latest/get-started/#step-1-set-up-the-toolchain)
-3. this template is for [vscode](https://code.visualstudio.com/download) which will need to be installed
-4. In VSCODE add the [c++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
+  for (int i = 0; i < 5; i++)
+  {
+    time_t now = 0;
+    time(&now);
+    print_time(now, "in loop");
+    vTaskDelay(pdMS_TO_TICKS(1000));
+  }
 
-5. ensure tour ESP32 is plugged in and that a COM PORT is established (You may need a driver for your ESP32 dev board)
+  esp_restart();
+}
 
-## Run command
+void app_main(void)
+{
+  time_t now = 0;
+  time(&now);
+  print_time(now, "Beginning of application");
 
-1. in any directory run
-```
-npx create-esp32-app
-```
+  nvs_flash_init();
 
-2. you will be prompted for the name of your project.
-3. you will be prompted for the IDF path. select or navigate to the location of the IDF path
-3. you will be prompted for the IDF-tools path. select or navigate to the location of the IDF-tools path
-4. navigate to the directory of the project name you created
-```
-cd <project name>
-```
-4. open the project in vscode ```code .```
+  // for idf 4.0 use this
+  // tcpip_adapter_init();
+  ///////////////
 
-## vs code intellisense
+  // for idf 5.0 use this
+  esp_netif_init();
+  ////////////////
+  
+  esp_event_loop_create_default();
+  example_connect();
 
-intellisense should just work so long as you have set up the paths correctly. If you have trouble double check your idf and tools paths and correct them in the **/.vscode/c_cpp_properties.json** file
-## flashing the esp32
+  sntp_set_sync_mode(SNTP_SYNC_MODE_IMMED);
+  sntp_setservername(0, "pool.ntp.org");
+  sntp_init();
+  sntp_set_time_sync_notification_cb(on_got_time);
+}
 
-1. in vs code, open a new terminal by pressing ctrl + \` (or pressing F1 and typing `open new terminal`)
-2. type the following command
-
-```bash
-idf.py -p [your com port] flash monitor
 ```

@@ -1,4 +1,5 @@
-#include <stdio.h>
+# light sleep
+```
 #include <string.h>
 #include <stdlib.h>
 #include <time.h>
@@ -9,7 +10,7 @@
 #include "esp_log.h"
 #include "esp32/rom/uart.h"
 #include "driver/rtc_io.h"
-// added fpr idf v 5
+//added fpr idf v 5
 #include "esp_timer.h"
 
 #define INPUT_PIN 0
@@ -37,16 +38,13 @@ void app_main()
 
         printf("going for a nap\n");
         uart_tx_wait_idle(CONFIG_ESP_CONSOLE_UART_NUM);
-
         int64_t before = esp_timer_get_time();
-
         esp_light_sleep_start();
-
         int64_t after = esp_timer_get_time();
-
         esp_sleep_wakeup_cause_t reason = esp_sleep_get_wakeup_cause();
-
         printf("napped for %lld, reason was %s\n", (after - before) / 1000,
                reason == ESP_SLEEP_WAKEUP_TIMER ? "timer" : "button");
     }
 }
+
+```

@@ -224,7 +224,7 @@ attempting to build  C:\projects\learnEsp32\esp32-course\_12_sleeping\_1_light_s
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_12_sleeping\_2_light_GPIO
 ❌ Error compiling  C:\projects\learnEsp32\esp32-course\_12_sleeping\_2_light_GPIO
-
+➡️fixed
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_12_sleeping\_3_deep_sleep_timer
 ✅ C:\projects\learnEsp32\esp32-course\_12_sleeping\_3_deep_sleep_timer succeeded
