@@ -43,7 +43,15 @@ void app_main(void)
   print_time(now, "Beginning of application");
 
   nvs_flash_init();
-  tcpip_adapter_init();
+
+  // for idf 4.0 use this
+  // tcpip_adapter_init();
+  ///////////////
+
+  // for idf 5.0 use this
+  esp_netif_init();
+  ////////////////
+
   esp_event_loop_create_default();
   example_connect();
 

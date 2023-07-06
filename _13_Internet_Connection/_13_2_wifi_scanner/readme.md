@@ -1,3 +1,7 @@
+# Wi-Fi scannanner
+## note below changes for IDF V5
+
+```c
 #include <stdio.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
@@ -66,3 +70,5 @@ void app_main()
     printf("%32s | %7d | %4d | %12s\n", (char *)wifi_records[i].ssid, wifi_records[i].primary, wifi_records[i].rssi, getAuthModeName(wifi_records[i].authmode));
   printf("----------------------------------------------------------------\n");
 }
+
+```
