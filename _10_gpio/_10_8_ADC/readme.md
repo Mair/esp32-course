@@ -1,9 +1,19 @@
-# ESP32 Starter template
+```c
+#include <stdio.h>
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include "driver/adc.h"
 
-## Debuging
-
-OpenedOCD can be quite involved. Please refer to the debugging with break points module for full details
-
-1. In a new terminal `openocd -f debug\quantum.cfg -f debug\esp-wroom-32.cfg`
-2. open another
+void app_main()
+{
+   adc1_config_width(ADC_WIDTH_BIT_12);
+   adc1_config_channel_atten(ADC1_CHANNEL_0, ADC_ATTEN_DB_0);
+   while (true)
+   {
+       int val = adc1_get_raw(ADC1_CHANNEL_0);
+       printf("value is %d\n", val);
+       vTaskDelay(1000 / portTICK_PERIOD_MS);
+   }
    
+}
+```

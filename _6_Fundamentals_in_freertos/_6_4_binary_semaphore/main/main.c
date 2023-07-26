@@ -5,8 +5,11 @@
 #include "freertos/task.h"
 #include "freertos/semphr.h"
 
+// IDF 4 / 5
 SemaphoreHandle_t binSemaphore;
-// xSemaphoreHandle binSemaphore;
+
+// IDF 4
+//  xSemaphoreHandle binSemaphore;
 
 void listenForHTTP(void *params)
 {

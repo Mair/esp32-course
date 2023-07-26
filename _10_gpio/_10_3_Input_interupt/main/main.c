@@ -5,8 +5,10 @@
 #include "driver/gpio.h"
 
 #define PIN_SWITCH 15
+// idf V4
+//  xQueueHandle interruptQueue;
 
-// xQueueHandle interruptQueue;
+// idf V4 / V5
 QueueHandle_t interruptQueue;
 
 static void IRAM_ATTR gpio_isr_handler(void *args)

@@ -1,51 +1,93 @@
-# SPIFFS example
+```c
+#include <stdio.h>
+#include <string.h>
+#include <sys/unistd.h>
+#include <sys/stat.h>
+#include "esp_err.h"
+#include "esp_log.h"
+#include "esp_spiffs.h"
 
-(See the README.md file in the upper level 'examples' directory for more information about examples.)
+static const char *TAG = "example";
 
-This example demonstrates how to use SPIFFS with ESP32. Example does the following steps:
+void app_main(void)
+{
+    ESP_LOGI(TAG, "Initializing SPIFFS");
+    
+    esp_vfs_spiffs_conf_t conf = {
+      .base_path = "/spiffs",
+      .partition_label = NULL,
+      .max_files = 5,
+      .format_if_mount_failed = true
+    };
+    
+    // Use settings defined above to initialize and mount SPIFFS filesystem.
+    // Note: esp_vfs_spiffs_register is an all-in-one convenience function.
+    esp_err_t ret = esp_vfs_spiffs_register(&conf);
 
-1. Use an "all-in-one" `esp_vfs_spiffs_register` function to:
-    - initialize SPIFFS,
-    - mount SPIFFS filesystem using SPIFFS library (and format, if the filesystem can not be mounted),
-    - register SPIFFS filesystem in VFS, enabling C standard library and POSIX functions to be used.
-2. Create a file using `fopen` and write to it using `fprintf`.
-3. Rename the file. Before renaming, check if destination file already exists using `stat` function, and remove it using `unlink` function.
-4. Open renamed file for reading, read back the line, and print it to the terminal.
+    if (ret != ESP_OK) {
+        if (ret == ESP_FAIL) {
+            ESP_LOGE(TAG, "Failed to mount or format filesystem");
+        } else if (ret == ESP_ERR_NOT_FOUND) {
+            ESP_LOGE(TAG, "Failed to find SPIFFS partition");
+        } else {
+            ESP_LOGE(TAG, "Failed to initialize SPIFFS (%s)", esp_err_to_name(ret));
+        }
+        return;
+    }
+    
+    size_t total = 0, used = 0;
+    ret = esp_spiffs_info(NULL, &total, &used);
+    if (ret != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to get SPIFFS partition information (%s)", esp_err_to_name(ret));
+    } else {
+        ESP_LOGI(TAG, "Partition size: total: %d, used: %d", total, used);
+    }
 
-SPIFFS partition size is set in partitions_example.csv file. See [Partition Tables](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/partition-tables.html) documentation for more information.
+    // Use POSIX and C standard library functions to work with files.
+    // First create a file.
+    ESP_LOGI(TAG, "Opening file");
+    FILE* f = fopen("/spiffs/hello.txt", "w");
+    if (f == NULL) {
+        ESP_LOGE(TAG, "Failed to open file for writing");
+        return;
+    }
+    fprintf(f, "Hello World!\n");
+    fclose(f);
+    ESP_LOGI(TAG, "File written");
 
-## How to use example
+    // Check if destination file exists before renaming
+    struct stat st;
+    if (stat("/spiffs/foo.txt", &st) == 0) {
+        // Delete it if it exists
+        unlink("/spiffs/foo.txt");
+    }
 
-### Hardware required
+    // Rename original file
+    ESP_LOGI(TAG, "Renaming file");
+    if (rename("/spiffs/hello.txt", "/spiffs/foo.txt") != 0) {
+        ESP_LOGE(TAG, "Rename failed");
+        return;
+    }
 
-This example does not require any special hardware, and can be run on any common development board.
+    // Open renamed file for reading
+    ESP_LOGI(TAG, "Reading file");
+    f = fopen("/spiffs/foo.txt", "r");
+    if (f == NULL) {
+        ESP_LOGE(TAG, "Failed to open file for reading");
+        return;
+    }
+    char line[64];
+    fgets(line, sizeof(line), f);
+    fclose(f);
+    // strip newline
+    char* pos = strchr(line, '\n');
+    if (pos) {
+        *pos = '\0';
+    }
+    ESP_LOGI(TAG, "Read from file: '%s'", line);
 
-### Build and flash
-
-Replace PORT with serial port name:
-
+    // All done, unmount partition and disable SPIFFS
+    esp_vfs_spiffs_unregister(NULL);
+    ESP_LOGI(TAG, "SPIFFS unmounted");
+}
 ```
-idf.py -p PORT flash monitor
-```
-
-(To exit the serial monitor, type ``Ctrl-]``.)
-
-See the Getting Started Guide for full steps to configure and use ESP-IDF to build projects.
-
-## Example output
-
-Here is an example console output. In this case `format_if_mount_failed` parameter was set to `true` in the source code. SPIFFS was unformatted, so the initial mount has failed. SPIFFS was then formatted, and mounted again.
-
-```
-I (324) example: Initializing SPIFFS
-W (324) SPIFFS: mount failed, -10025. formatting...
-I (19414) example: Partition size: total: 896321, used: 0
-I (19414) example: Opening file
-I (19504) example: File written
-I (19544) example: Renaming file
-I (19584) example: Reading file
-I (19584) example: Read from file: 'Hello World!'
-I (19584) example: SPIFFS unmounted
-```
-
-To erase the contents of SPIFFS partition, run `idf.py erase_flash` command. Then upload the example again as described above.

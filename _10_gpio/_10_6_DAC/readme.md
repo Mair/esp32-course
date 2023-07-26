@@ -1,9 +1,11 @@
-# ESP32 Starter template
+```c
+#include <stdio.h>
+#include "driver/gpio.h"
+#include "driver/dac.h"
 
-## Debuging
-
-OpenedOCD can be quite involved. Please refer to the debugging with break points module for full details
-
-1. In a new terminal `openocd -f debug\quantum.cfg -f debug\esp-wroom-32.cfg`
-2. open another
-   
+void app_main()
+{
+    dac_output_enable(DAC_CHANNEL_1);
+    dac_output_voltage(DAC_CHANNEL_1, 200);
+}
+```

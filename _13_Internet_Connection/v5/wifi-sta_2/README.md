@@ -1,35 +1,58 @@
-| Supported Targets | ESP32 | ESP32-C2 | ESP32-C3 | ESP32-C6 | ESP32-H2 | ESP32-S2 | ESP32-S3 |
-| ----------------- | ----- | -------- | -------- | -------- | -------- | -------- | -------- |
+```c 
 
-# _Sample project_
+void event_handler(void *event_handler_arg, esp_event_base_t event_base,
+                   int32_t event_id, void *event_data)
+{
+    switch (event_id)
+    {
+    case WIFI_EVENT_STA_START:
+        ESP_LOGI(TAG, "WIFI_EVENT_STA_START");
+        esp_wifi_connect();
+        break;
+    case WIFI_EVENT_STA_CONNECTED:
+        ESP_LOGI(TAG, "WIFI_EVENT_STA_CONNECTED");
+        break;
+    case WIFI_EVENT_STA_DISCONNECTED:
+        ESP_LOGI(TAG, "WIFI_EVENT_STA_DISCONNECTED");
+        xEventGroupSetBits(wifi_events, DISCONNECTED);
+        break;
+    case IP_EVENT_STA_GOT_IP:
+        ESP_LOGI(TAG, "IP_EVENT_STA_GOT_IP");
+        xEventGroupSetBits(wifi_events, CONNECTED);
+        break;
+    default:
+        break;
+    }
+}
 
-(See the README.md file in the upper level 'examples' directory for more information about examples.)
+void wifi_connect_init(void)
+{
+    ...
+}
 
-This is the simplest buildable example. The example is used by command `idf.py create-project`
-that copies the project to user specified path and set it's name. For more information follow the [docs page](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/build-system.html#start-a-new-project)
+esp_err_t wifi_connect_sta(char *ssid, char *pass, int timeout)
+{
+    wifi_events = xEventGroupCreate();
+    esp_netif = esp_netif_create_default_wifi_sta();
+    ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
 
+    // for static ip...
+    // ESP_ERROR_CHECK(esp_netif_dhcpc_stop(esp_netif));
+    // esp_netif_ip_info_t ip_info;
+    // ip_info.ip.addr = ipaddr_addr("192.168.43.150");
+    // ip_info.gw.addr = ipaddr_addr("192.168.43.1");
+    // ip_info.netmask.addr = ipaddr_addr("255.255.255.0");
+    // ESP_ERROR_CHECK(esp_netif_set_ip_info(esp_netif, &ip_info));
 
+    wifi_config_t wifi_config = {};
+    strncpy((char *)wifi_config.sta.ssid, ssid, sizeof(wifi_config.sta.ssid) - 1);
+    strncpy((char *)wifi_config.sta.password, pass, sizeof(wifi_config.sta.password) - 1);
+    ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, &wifi_config));
+    ESP_ERROR_CHECK(esp_wifi_start());
 
-## How to use example
-We encourage the users to use the example as a template for the new projects.
-A recommended way is to follow the instructions on a [docs page](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/build-system.html#start-a-new-project).
-
-## Example folder contents
-
-The project **sample_project** contains one source file in C language [main.c](main/main.c). The file is located in folder [main](main).
-
-ESP-IDF projects are built using CMake. The project build configuration is contained in `CMakeLists.txt`
-files that provide set of directives and instructions describing the project's source files and targets
-(executable, library, or both). 
-
-Below is short explanation of remaining files in the project folder.
-
+    EventBits_t result = xEventGroupWaitBits(wifi_events, CONNECTED | DISCONNECTED, true, false, pdMS_TO_TICKS(timeout));
+    if (result == CONNECTED)
+        return ESP_OK;
+    return ESP_FAIL;
+}
 ```
-├── CMakeLists.txt
-├── main
-│   ├── CMakeLists.txt
-│   └── main.c
-└── README.md                  This is the file you are currently reading
-```
-Additionally, the sample project contains Makefile and component.mk files, used for the legacy Make based build system. 
-They are not used or needed when building with CMake and idf.py.

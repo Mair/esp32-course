@@ -1,35 +1,69 @@
-| Supported Targets | ESP32 | ESP32-C2 | ESP32-C3 | ESP32-C6 | ESP32-H2 | ESP32-S2 | ESP32-S3 |
-| ----------------- | ----- | -------- | -------- | -------- | -------- | -------- | -------- |
+```c
+#include <stdio.h>
+#include "esp_wifi.h"
+#include "nvs_flash.h"
 
-# _Sample project_
+#define MAX_APs 20
 
-(See the README.md file in the upper level 'examples' directory for more information about examples.)
+char *getAuthModeName(wifi_auth_mode_t wifi_auth_mode)
+{
+    switch (wifi_auth_mode)
+    {
+    case WIFI_AUTH_OPEN:
+        return "WIFI_AUTH_OPEN";
+    case WIFI_AUTH_WEP:
+        return "WIFI_AUTH_WEP";
+    case WIFI_AUTH_WPA_PSK:
+        return "WIFI_AUTH_WPA_PSK";
+    case WIFI_AUTH_WPA2_PSK:
+        return "WIFI_AUTH_WPA2_PSK";
+    case WIFI_AUTH_WPA_WPA2_PSK:
+        return "WIFI_AUTH_WPA_WPA2_PSK";
+    case WIFI_AUTH_WPA2_ENTERPRISE:
+        return "WIFI_AUTH_WPA2_ENTERPRISE";
+    case WIFI_AUTH_WPA3_PSK:
+        return "WIFI_AUTH_WPA3_PSK";
+    case WIFI_AUTH_WPA2_WPA3_PSK:
+        return "WIFI_AUTH_WPA2_WPA3_PSK";
+    case WIFI_AUTH_WAPI_PSK:
+        return "WIFI_AUTH_WAPI_PSK";
+    case WIFI_AUTH_OWE:
+        return "WIFI_AUTH_OWE";
+    case WIFI_AUTH_MAX:
+        return "WIFI_AUTH_MAX";
+    }
+    return "UNKNOWN";
+}
 
-This is the simplest buildable example. The example is used by command `idf.py create-project`
-that copies the project to user specified path and set it's name. For more information follow the [docs page](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/build-system.html#start-a-new-project)
+void app_main(void)
+{
+    nvs_flash_init();
 
+    wifi_init_config_t wifi_init_config = WIFI_INIT_CONFIG_DEFAULT();
+    esp_wifi_init(&wifi_init_config);
+    esp_wifi_start();
 
+    wifi_scan_config_t wifi_scan_config = {
+        .show_hidden = true,
+        .channel = 13};
+    esp_wifi_scan_start(&wifi_scan_config, true);
 
-## How to use example
-We encourage the users to use the example as a template for the new projects.
-A recommended way is to follow the instructions on a [docs page](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/build-system.html#start-a-new-project).
+    wifi_ap_record_t wifi_records[MAX_APs];
+    uint16_t max_record = MAX_APs;
 
-## Example folder contents
+    esp_wifi_scan_get_ap_records(&max_record, wifi_records);
 
-The project **sample_project** contains one source file in C language [main.c](main/main.c). The file is located in folder [main](main).
-
-ESP-IDF projects are built using CMake. The project build configuration is contained in `CMakeLists.txt`
-files that provide set of directives and instructions describing the project's source files and targets
-(executable, library, or both). 
-
-Below is short explanation of remaining files in the project folder.
+    printf("Found %d access points:\n", max_record);
+    printf("\n");
+    printf("               SSID              | Channel | RSSI |   Auth Mode \n");
+    printf("----------------------------------------------------------------\n");
+    for (int i = 0; i < max_record; i++)
+    {
+        printf("%32s | %7d | %4d | %12s\n", (char *)wifi_records[i].ssid,
+               wifi_records[i].primary, wifi_records[i].rssi,
+               getAuthModeName(wifi_records[i].authmode));
+    }
+    printf("----------------------------------------------------------------\n");
+}
 
 ```
-├── CMakeLists.txt
-├── main
-│   ├── CMakeLists.txt
-│   └── main.c
-└── README.md                  This is the file you are currently reading
-```
-Additionally, the sample project contains Makefile and component.mk files, used for the legacy Make based build system. 
-They are not used or needed when building with CMake and idf.py.

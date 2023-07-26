@@ -1,9 +1,29 @@
-# ESP32 Starter template
+```c
+#include <stdio.h>
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include "driver/gpio.h"
 
-## Debuging
+#define PIN_SWITCH 15
+#define PIN_LED 2
 
-OpenedOCD can be quite involved. Please refer to the debugging with break points module for full details
+void app_main()
+{
+    //only on IDF V4
+    // gpio_pad_select_gpio(PIN_LED);
+    gpio_set_direction(PIN_LED, GPIO_MODE_OUTPUT);
 
-1. In a new terminal `openocd -f debug\quantum.cfg -f debug\esp-wroom-32.cfg`
-2. open another
-   
+    //only on IDF V4
+    // gpio_pad_select_gpio(PIN_SWITCH);
+    gpio_set_direction(PIN_SWITCH, GPIO_MODE_INPUT);
+    gpio_pulldown_en(PIN_SWITCH);
+    // gpio_pullup_en(PIN_SWITCH);
+    gpio_pullup_dis(PIN_SWITCH);
+
+    while (true)
+    {
+        int level = gpio_get_level(PIN_SWITCH);
+        gpio_set_level(PIN_LED, level);
+        vTaskDelay(1);
+    }
+}```
