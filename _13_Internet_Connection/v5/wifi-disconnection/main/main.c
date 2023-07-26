@@ -12,12 +12,12 @@ void app_main(void)
     while (true)
     {
 
-        wifi_connect_sta("POCO", "password", 10000, 0);
-        vTaskDelay(pdMS_TO_TICKS(15000));
+        wifi_connect_ap("myEsp32AP", "password");
+        vTaskDelay(pdMS_TO_TICKS(10000));
         wifi_disconnect();
 
-        wifi_connect_ap("myEsp32AP", "password");
-        vTaskDelay(pdMS_TO_TICKS(15000));
+        wifi_connect_sta("POCO", "password", 10000, 0);
+        vTaskDelay(pdMS_TO_TICKS(20000));
         wifi_disconnect();
     }
 }
