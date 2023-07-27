@@ -5,7 +5,7 @@
 #define I2C_MASTER_SDA_IO 22      /*!< gpio number for I2C master data  */
 #define I2C_MASTER_NUM I2C_NUM_1  /*!< I2C port number for master dev */
 #define I2C_MASTER_FREQ_HZ 100000 /*!< I2C master clock frequency */
-
+#define SSD1306_I2C_ADDRESS (0x3C / 2)
 static ssd1306_handle_t ssd1306_dev = NULL;
 
 void app_main(void)

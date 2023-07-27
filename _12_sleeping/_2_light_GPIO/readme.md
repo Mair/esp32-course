@@ -1,5 +1,5 @@
 # light sleep
-```
+```c
 #include <string.h>
 #include <stdlib.h>
 #include <time.h>

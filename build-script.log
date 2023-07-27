@@ -249,15 +249,18 @@ attempting to build  C:\projects\learnEsp32\esp32-course\_13_Internet_Connection
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_13_Internet_Connection\time
 ❌ Error compiling  C:\projects\learnEsp32\esp32-course\_13_Internet_Connection\time
+➡️fixed
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_13_Internet_Connection\v4.3\13_3_internet_connection
 ❌ Error compiling  C:\projects\learnEsp32\esp32-course\_13_Internet_Connection\v4.3\13_3_internet_connection
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_13_Internet_Connection\_13_1_exampleConnect
 ❌ Error compiling  C:\projects\learnEsp32\esp32-course\_13_Internet_Connection\_13_1_exampleConnect
+➡️fixed
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_13_Internet_Connection\_13_2_wifi_scanner
 ❌ Error compiling  C:\projects\learnEsp32\esp32-course\_13_Internet_Connection\_13_2_wifi_scanner
+➡️fixed
 
 attempting to build  C:\projects\learnEsp32\esp32-course\_14_Rest_Client\v4.3\_1_get_data
 ❌ Error compiling  C:\projects\learnEsp32\esp32-course\_14_Rest_Client\v4.3\_1_get_data

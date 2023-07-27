@@ -1,0 +1,113 @@
+<mxfile host="Electron" modified="2023-07-16T05:28:53.262Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.1 Chrome/112.0.5615.204 Electron/24.6.1 Safari/537.36" etag="WsoG42iDtxKjLjRHryk5" version="21.6.1" type="device">
+  <diagram name="Page-1" id="d_eHvsRiAShMlIBbo81v">
+    <mxGraphModel dx="1432" dy="880" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" tags="" id="emu6egkuT3-XEDPAHDtS-21">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#d79b00;fillColor=#ffe6cc;" parent="1" vertex="1">
+            <mxGeometry x="470" y="20" width="310" height="680" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="emu6egkuT3-XEDPAHDtS-15" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#d6b656;fillColor=#fff2cc;" parent="1" vertex="1">
+          <mxGeometry x="80" y="20" width="290" height="680" as="geometry" />
+        </mxCell>
+        <UserObject label="" tags="_3" id="emu6egkuT3-XEDPAHDtS-8">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;labelBackgroundColor=none;strokeColor=#DDA15E;fontColor=default;" parent="1" source="emu6egkuT3-XEDPAHDtS-1" target="emu6egkuT3-XEDPAHDtS-2" edge="1">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="initializing the radio" tags="_2" id="emu6egkuT3-XEDPAHDtS-1">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#BC6C25;strokeColor=#DDA15E;fontColor=#FEFAE0;" parent="1" vertex="1">
+            <mxGeometry x="160" y="120" width="120" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" tags="_4" id="emu6egkuT3-XEDPAHDtS-9">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;labelBackgroundColor=none;strokeColor=#DDA15E;fontColor=default;" parent="1" source="emu6egkuT3-XEDPAHDtS-2" target="emu6egkuT3-XEDPAHDtS-3" edge="1">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="handshake with router" tags="_3" id="emu6egkuT3-XEDPAHDtS-2">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#BC6C25;strokeColor=#DDA15E;fontColor=#FEFAE0;" parent="1" vertex="1">
+            <mxGeometry x="160" y="230" width="120" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" tags="_5" id="emu6egkuT3-XEDPAHDtS-10">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;labelBackgroundColor=none;strokeColor=#DDA15E;fontColor=default;" parent="1" source="emu6egkuT3-XEDPAHDtS-3" target="emu6egkuT3-XEDPAHDtS-5" edge="1">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Get an ip address" tags="_4" id="emu6egkuT3-XEDPAHDtS-3">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#BC6C25;strokeColor=#DDA15E;fontColor=#FEFAE0;" parent="1" vertex="1">
+            <mxGeometry x="160" y="340" width="120" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" tags="_6" id="emu6egkuT3-XEDPAHDtS-12">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#DDA15E;fontColor=#FEFAE0;fillColor=#BC6C25;" parent="1" source="emu6egkuT3-XEDPAHDtS-5" target="emu6egkuT3-XEDPAHDtS-11" edge="1">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="communicate with internet" tags="_5" id="emu6egkuT3-XEDPAHDtS-5">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+            <mxGeometry x="160" y="450" width="120" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" tags="_2" id="emu6egkuT3-XEDPAHDtS-7">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;labelBackgroundColor=none;strokeColor=#DDA15E;fontColor=default;" parent="1" source="emu6egkuT3-XEDPAHDtS-6" target="emu6egkuT3-XEDPAHDtS-1" edge="1">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Start" tags="_!_start" id="emu6egkuT3-XEDPAHDtS-6">
+          <mxCell style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#BC6C25;strokeColor=#DDA15E;fontColor=#FEFAE0;" parent="1" vertex="1">
+            <mxGeometry x="200" y="40" width="40" height="40" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" tags="_7" id="emu6egkuT3-XEDPAHDtS-14">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#DDA15E;fontColor=#FEFAE0;fillColor=#BC6C25;" parent="1" source="emu6egkuT3-XEDPAHDtS-11" target="emu6egkuT3-XEDPAHDtS-13" edge="1">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Disconnect from the wifi" tags="_6" id="emu6egkuT3-XEDPAHDtS-11">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#BC6C25;strokeColor=#DDA15E;fontColor=#FEFAE0;" parent="1" vertex="1">
+            <mxGeometry x="160" y="555" width="120" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="End" tags="_7" id="emu6egkuT3-XEDPAHDtS-13">
+          <mxCell style="ellipse;whiteSpace=wrap;html=1;strokeColor=#DDA15E;fontColor=#FEFAE0;fillColor=#BC6C25;" parent="1" vertex="1">
+            <mxGeometry x="195" y="650" width="50" height="45" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" tags="_9" id="emu6egkuT3-XEDPAHDtS-16">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#d6b656;fillColor=#fff2cc;" parent="1" vertex="1">
+            <mxGeometry x="850" y="15" width="290" height="680" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" tags="_10" id="emu6egkuT3-XEDPAHDtS-18">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#DDA15E;fontColor=#FEFAE0;fillColor=#BC6C25;" parent="1" source="emu6egkuT3-XEDPAHDtS-19" target="emu6egkuT3-XEDPAHDtS-1" edge="1">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint x="590" y="230" as="sourcePoint" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <mxCell id="emu6egkuT3-XEDPAHDtS-20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#DDA15E;fontColor=#FEFAE0;fillColor=#BC6C25;" parent="1" source="emu6egkuT3-XEDPAHDtS-17" target="emu6egkuT3-XEDPAHDtS-19" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <UserObject label="start" tags="_9" id="emu6egkuT3-XEDPAHDtS-17">
+          <mxCell style="ellipse;whiteSpace=wrap;html=1;strokeColor=#DDA15E;fontColor=#FEFAE0;fillColor=#BC6C25;" parent="1" vertex="1">
+            <mxGeometry x="960" y="35" width="70" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="start communication" tags="_10" id="emu6egkuT3-XEDPAHDtS-19">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#DDA15E;fontColor=#FEFAE0;fillColor=#BC6C25;" parent="1" vertex="1">
+            <mxGeometry x="935" y="145" width="120" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="communicate with internet" tags="_5" id="emu6egkuT3-XEDPAHDtS-22">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+            <mxGeometry x="935" y="400" width="120" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
