@@ -1,3 +1,4 @@
+```c{
 #include <stdio.h>
 #include <string.h>
 #include "esp_log.h"
@@ -10,7 +11,7 @@
 #define TAG "NVS"
 
 void app_main()
-```c{
+
 
     ESP_ERROR_CHECK(nvs_flash_init());
 

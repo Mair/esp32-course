@@ -2,6 +2,7 @@ idf_component_register(
     SRCS
     "wifi_connect.c"
     "wifi_connect_err.c"
+    "connect.c"
     INCLUDE_DIRS
     "."
     REQUIRES
