@@ -1,0 +1,10 @@
+{
+  "C_Cpp.intelliSenseEngine": "Default",
+  "idf.adapterTargetName": "esp32",
+  "cSpell.words": ["IRAM"],
+  "files.associations": {
+    "future": "c",
+    "system_error": "c",
+    "*.ipp": "c"
+  }
+}

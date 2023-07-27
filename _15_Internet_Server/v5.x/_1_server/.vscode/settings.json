@@ -1,0 +1,7 @@
+{
+  "C_Cpp.intelliSenseEngine": "Default",
+  "idf.adapterTargetName": "esp32",
+  "files.associations": {
+    "connect.h": "c"
+  }
+}
