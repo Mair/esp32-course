@@ -1,0 +1,27 @@
+{
+  "personalizations": [
+    {
+      "to": [
+        {
+          "email": "info@learnesp32.com",
+          "name": "Mair"
+        }
+      ],
+      "subject": "Hello, World!"
+    }
+  ],
+  "content": [
+    {
+      "type": "text/plain",
+      "value": "Heya!"
+    }
+  ],
+  "from": {
+    "email": "info@learnesp32.com",
+    "name": "Mair"
+  },
+  "reply_to": {
+    "email": "info@learnesp32.com",
+    "name": "Mair"
+  }
+}
