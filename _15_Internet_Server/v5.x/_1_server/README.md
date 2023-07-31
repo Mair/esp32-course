@@ -1,32 +1,43 @@
-# _Sample project_
+```c
+#include <stdio.h>
+#include "connect.h"
+#include "nvs_flash.h"
+#include "esp_log.h"
+#include "esp_http_server.h"
 
-(See the README.md file in the upper level 'examples' directory for more information about examples.)
-
-This is the simplest buildable example. The example is used by command `idf.py create-project`
-that copies the project to user specified path and set it's name. For more information follow the [docs page](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/build-system.html#start-a-new-project)
+static const char *TAG = "SERVER";
 
 
+static esp_err_t on_default_url(httpd_req_t *req)
+{
+    ESP_LOGI(TAG,"URL: %s",req->uri);
+    httpd_resp_sendstr(req,"hello world");
+    return ESP_OK;
+}
 
-## How to use example
-We encourage the users to use the example as a template for the new projects.
-A recommended way is to follow the instructions on a [docs page](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/build-system.html#start-a-new-project).
+static void init_server()
+{
+  httpd_handle_t server = NULL;
+  httpd_config_t config = HTTPD_DEFAULT_CONFIG();
 
-## Example folder contents
+  ESP_ERROR_CHECK(httpd_start(&server, &config));
 
-The project **sample_project** contains one source file in C language [main.c](main/main.c). The file is located in folder [main](main).
+  httpd_uri_t default_url = {
+    .uri ="/",
+    .method = HTTP_GET,
+    .handler = on_default_url
+  };
+  httpd_register_uri_handler(server,&default_url);
 
-ESP-IDF projects are built using CMake. The project build configuration is contained in `CMakeLists.txt`
-files that provide set of directives and instructions describing the project's source files and targets
-(executable, library, or both). 
+}
 
-Below is short explanation of remaining files in the project folder.
+void app_main(void)
+{
+  ESP_ERROR_CHECK(nvs_flash_init());
+  wifi_init();
+  ESP_ERROR_CHECK(wifi_connect_sta("POCO", "password", 10000));
+
+  init_server();
+}
 
 ```
-├── CMakeLists.txt
-├── main
-│   ├── CMakeLists.txt
-│   └── main.c
-└── README.md                  This is the file you are currently reading
-```
-Additionally, the sample project contains Makefile and component.mk files, used for the legacy Make based build system. 
-They are not used or needed when building with CMake and idf.py.

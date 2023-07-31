@@ -1,10 +1,19 @@
 {
-  "C_Cpp.intelliSenseEngine": "Default",
+  "C_Cpp.intelliSenseEngine": "default",
   "idf.adapterTargetName": "esp32",
-  "cSpell.words": ["IRAM"],
+  "idf.customExtraPaths": "c:\\esp\\v5.1\\tools\\tools\\xtensa-esp-elf-gdb\\12.1_20221002\\xtensa-esp-elf-gdb\\bin;c:\\esp\\v5.1\\tools\\tools\\riscv32-esp-elf-gdb\\12.1_20221002\\riscv32-esp-elf-gdb\\bin;c:\\esp\\v5.1\\tools\\tools\\xtensa-esp32-elf\\esp-12.2.0_20230208\\xtensa-esp32-elf\\bin;c:\\esp\\v5.1\\tools\\tools\\xtensa-esp32s2-elf\\esp-12.2.0_20230208\\xtensa-esp32s2-elf\\bin;c:\\esp\\v5.1\\tools\\tools\\xtensa-esp32s3-elf\\esp-12.2.0_20230208\\xtensa-esp32s3-elf\\bin;c:\\esp\\v5.1\\tools\\tools\\riscv32-esp-elf\\esp-12.2.0_20230208\\riscv32-esp-elf\\bin;c:\\esp\\v5.1\\tools\\tools\\esp32ulp-elf\\2.35_20220830\\esp32ulp-elf\\bin;c:\\esp\\v5.1\\tools\\tools\\cmake\\3.24.0\\bin;c:\\esp\\v5.1\\tools\\tools\\openocd-esp32\\v0.12.0-esp32-20230419\\openocd-esp32\\bin;c:\\esp\\v5.1\\tools\\tools\\ninja\\1.10.2;c:\\esp\\v5.1\\tools\\tools\\idf-exe\\1.0.3;c:\\esp\\v5.1\\tools\\tools\\ccache\\4.8\\ccache-4.8-windows-x86_64;c:\\esp\\v5.1\\tools\\tools\\dfu-util\\0.11\\dfu-util-0.11-win64;c:\\esp\\v5.1\\tools\\tools\\esp-rom-elfs\\20230320",
+  "idf.customExtraVars": {
+    "OPENOCD_SCRIPTS": "c:\\esp\\tools\\tools\\openocd-esp32\\v0.11.0-esp32-20221026/openocd-esp32/share/openocd/scripts",
+    "IDF_CCACHE_ENABLE": "1"
+  },
+  "idf.espIdfPathWin": "c:\\esp\\v5.1\\idf\\esp-idf",
+  "idf.espMdfPathWin": "c:\\esp\\esp-mdf",
+  "idf.openOcdConfigs": ["board/esp32-wrover-kit-3.3v.cfg"],
+  "idf.pythonBinPathWin": "c:\\esp\\v5.1\\tools\\python_env\\idf5.1_py3.8_env\\Scripts\\python.exe",
+  "idf.toolsPathWin": "c:\\esp\\v5.1\\tools",
   "files.associations": {
-    "future": "c",
-    "system_error": "c",
-    "*.ipp": "c"
+    "wifi_connect.h": "c",
+    "esp_system.h": "c",
+    "esp_wifi.h": "c"
   }
 }
