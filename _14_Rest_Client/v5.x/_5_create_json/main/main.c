@@ -29,7 +29,7 @@ esp_err_t on_client_data(esp_http_client_event_t *evt)
         chunk_payload->buffer_index = chunk_payload->buffer_index + evt->data_len;
         chunk_payload->buffer[chunk_payload->buffer_index] = 0;
 
-        //printf("buffer******** %s\n",chunk_payload->buffer);
+        // printf("buffer******** %s\n",chunk_payload->buffer);
     }
     break;
 
@@ -94,7 +94,7 @@ void send_email()
         .cert_pem = (char *)cert};
     esp_http_client_handle_t client = esp_http_client_init(&esp_http_client_config);
     esp_http_client_set_header(client, "Content-Type", "application/json");
-    esp_http_client_set_header(client, "Authorization", "Bearer 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");
+    esp_http_client_set_header(client, "Authorization", "Bearer <your token here>");
     char *payload_body = create_email_body();
     esp_http_client_set_post_field(client, payload_body, strlen(payload_body));
 

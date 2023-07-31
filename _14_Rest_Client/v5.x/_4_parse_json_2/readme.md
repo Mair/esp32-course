@@ -1,32 +1,59 @@
-# _Sample project_
+```c
 
-(See the README.md file in the upper level 'examples' directory for more information about examples.)
+void * json_malloc(size_t size){
+  return heap_caps_malloc(size, MALLOC_CAP_SPIRAM);
+}
 
-This is the simplest buildable example. The example is used by command `idf.py create-project`
-that copies the project to user specified path and set it's name. For more information follow the [docs page](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/build-system.html#start-a-new-project)
+void json_free(void* ptr){
+  heap_caps_free(ptr);
+}
 
+esp_err_t parse_weather(weather_t *weather, char *weatherStr)
+{
 
+  cJSON_Hooks hooks ={
+      .malloc_fn =json_malloc,
+      .free_fn = json_free
+  };
+  cJSON_InitHooks(&hooks);
 
-## How to use example
-We encourage the users to use the example as a template for the new projects.
-A recommended way is to follow the instructions on a [docs page](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/build-system.html#start-a-new-project).
+  cJSON *weather_json = cJSON_Parse(weatherStr);
+  if (weather_json == NULL)
+  {
+    const char *err = cJSON_GetErrorPtr();
+    if (err)
+    {
+      ESP_LOGE(TAG, "Error parsing json before %s", err);
+      return -1;
+    }
+  }
+  cJSON *location = cJSON_GetObjectItemCaseSensitive(weather_json, "location");
+  strcpy(weather->location.country, cJSON_GetObjectItemCaseSensitive(location, "country")->valuestring);
+  strcpy(weather->location.region, cJSON_GetObjectItemCaseSensitive(location, "region")->valuestring);
+  strcpy(weather->location.name, cJSON_GetObjectItemCaseSensitive(location, "name")->valuestring);
 
-## Example folder contents
+  cJSON *current = cJSON_GetObjectItemCaseSensitive(weather_json, "current");
+  weather->current.temp_c = cJSON_GetObjectItemCaseSensitive(current, "temp_c")->valuedouble;
 
-The project **sample_project** contains one source file in C language [main.c](main/main.c). The file is located in folder [main](main).
+  cJSON *current_condition = cJSON_GetObjectItemCaseSensitive(current, "condition");
+  strcpy(weather->current.condion_text, cJSON_GetObjectItemCaseSensitive(current_condition, "text")->valuestring);
 
-ESP-IDF projects are built using CMake. The project build configuration is contained in `CMakeLists.txt`
-files that provide set of directives and instructions describing the project's source files and targets
-(executable, library, or both). 
+  cJSON *forecast = cJSON_GetObjectItemCaseSensitive(weather_json, "forecast");
+  cJSON *forecast_days = cJSON_GetObjectItemCaseSensitive(forecast, "forecastday");
 
-Below is short explanation of remaining files in the project folder.
+  int i = 0;
+  cJSON *forecast_day;
+  cJSON_ArrayForEach(forecast_day, forecast_days)
+  {
+    cJSON *day = cJSON_GetObjectItemCaseSensitive(forecast_day, "day");
+    weather->forecast[i++].avgtemp_c = cJSON_GetObjectItemCaseSensitive(day, "avgtemp_c")->valuedouble;
+
+    cJSON *day_condition = cJSON_GetObjectItemCaseSensitive(day, "condition");
+    strcpy(weather->forecast[i].condition_text, cJSON_GetObjectItemCaseSensitive(day_condition, "text")->valuestring);
+  }
+  cJSON_Delete(weather_json);
+
+  return ESP_OK;
+}
 
 ```
-├── CMakeLists.txt
-├── main
-│   ├── CMakeLists.txt
-│   └── main.c
-└── README.md                  This is the file you are currently reading
-```
-Additionally, the sample project contains Makefile and component.mk files, used for the legacy Make based build system. 
-They are not used or needed when building with CMake and idf.py.

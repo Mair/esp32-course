@@ -10,7 +10,10 @@
 
 #define BTN 0
 
-static xSemaphoreHandle btn_sem;
+// for IDF V4 and V5
+static SemaphoreHandle_t btn_sem;
+// for IDF v4 only
+// static xSemaphoreHandle btn_sem;
 
 static void IRAM_ATTR on_btn_pushed(void *args)
 {
@@ -34,9 +37,11 @@ static void btn_push_task(void *params)
 
 void init_btn(void)
 {
-  xTaskCreate(btn_push_task, "btn_push_task", 2048, NULL, 5, NULL);
   btn_sem = xSemaphoreCreateBinary();
-  gpio_pad_select_gpio(BTN);
+  xTaskCreate(btn_push_task, "btn_push_task", 2048, NULL, 5, NULL);
+
+  // not required for version 5
+  // gpio_pad_select_gpio(BTN);
   gpio_set_direction(BTN, GPIO_MODE_INPUT);
   gpio_set_intr_type(BTN, GPIO_INTR_ANYEDGE);
   gpio_install_isr_service(0);

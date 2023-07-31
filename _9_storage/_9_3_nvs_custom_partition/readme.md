@@ -1,3 +1,10 @@
+## Partitions.csv
+```
+...
+nvs,      data, nvs,     ,        0x6000,
+...
+```
+
 ```c
   ESP_ERROR_CHECK(nvs_flash_init_partition("MyNvs"));
 
