@@ -15,7 +15,7 @@
 #include "esp_ota_ops.h"
 
 #define TAG "OTA"
-xSemaphoreHandle ota_semaphore;
+SemaphoreHandle_t ota_semaphore;
 
 extern const uint8_t server_cert_pem_start[] asm("_binary_google_cer_start");
 
@@ -44,7 +44,12 @@ esp_err_t validate_image_header(esp_app_desc_t *incoming_ota_desc)
 void run_ota(void *params)
 {
   ESP_ERROR_CHECK(nvs_flash_init());
-  tcpip_adapter_init();
+  // IDF V4
+  //  tcpip_adapter_init();
+
+  // IDF V5
+  esp_netif_init();
+
   ESP_ERROR_CHECK(esp_event_loop_create_default());
   while (true)
   {
@@ -54,7 +59,7 @@ void run_ota(void *params)
     ESP_ERROR_CHECK(example_connect());
 
     esp_http_client_config_t clientConfig = {
-        .url = "https://drive.google.com/uc?authuser=0&id=1HQln4CQI55Qh9Yi4Km1Nyl4Hklv9QuqK&export=download", // our ota location
+        .url = "https://drive.google.com/u/0/uc?id=1dbGPJuEjVX-0-c1mLOa-2iWjl2lDcFTR&export=download", // our ota location
         .event_handler = client_event_handler,
         .cert_pem = (char *)server_cert_pem_start};
 

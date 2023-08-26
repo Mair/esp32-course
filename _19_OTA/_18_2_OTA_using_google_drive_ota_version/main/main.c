@@ -14,7 +14,7 @@
 #include "esp_ota_ops.h"
 
 #define TAG "OTA"
-xSemaphoreHandle ota_semaphore;
+SemaphoreHandle_t ota_semaphore;
 
 extern const uint8_t server_cert_pem_start[] asm("_binary_google_cer_start");
 
@@ -31,16 +31,29 @@ void run_ota(void *params)
     ESP_LOGI(TAG, "Invoking OTA");
 
     ESP_ERROR_CHECK(nvs_flash_init());
-    tcpip_adapter_init();
+
+    // IDF V4
+    //  tcpip_adapter_init();
+
+    // IDF V5
+    esp_netif_init();
+
     ESP_ERROR_CHECK(esp_event_loop_create_default());
     ESP_ERROR_CHECK(example_connect());
 
     esp_http_client_config_t clientConfig = {
-        .url = "https://drive.google.com/uc?authuser=0&id=1HQln4CQI55Qh9Yi4Km1Nyl4Hklv9QuqK&export=download", // our ota location
+        .url = "https://drive.google.com/u/0/uc?id=1dbGPJuEjVX-0-c1mLOa-2iWjl2lDcFTR&export=download", // our ota location
         .event_handler = client_event_handler,
         .cert_pem = (char *)server_cert_pem_start};
 
-    if (esp_https_ota(&clientConfig) == ESP_OK)
+    // IDF V5
+    esp_https_ota_config_t ota_config = {
+        .http_config = &clientConfig};
+
+    // IDF V4.
+    // if (esp_https_ota(&clientConfig) == ESP_OK)
+    // IDF V5
+    if (esp_https_ota(&ota_config) == ESP_OK)
     {
       printf("restarting in 5 seconds\n");
       vTaskDelay(pdMS_TO_TICKS(5000));

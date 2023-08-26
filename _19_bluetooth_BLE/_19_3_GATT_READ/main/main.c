@@ -17,30 +17,20 @@ void ble_app_advertise(void);
 
 static int device_info(uint16_t conn_handle, uint16_t attr_handle, struct ble_gatt_access_ctxt *ctxt, void *arg)
 {
-    const char * message = "Hello world";
-    os_mbuf_append(ctxt->om,"message",strlen("message"));
+    const char *message = "Hello world";
+    os_mbuf_append(ctxt->om, message, strlen(message));
     return 0;
 }
 
 static const struct ble_gatt_svc_def gat_svcs[] = {
-    {
-        .type = BLE_GATT_SVC_TYPE_PRIMARY,
-        .uuid = BLE_UUID16_DECLARE(DEVICE_INFO_SERVICE),
-        .characteristics = (struct ble_gatt_chr_def[]){
-            {
-                .uuid = BLE_UUID16_DECLARE(MANUFACTURER_NAME),
-                .flags = BLE_GATT_CHR_F_READ,
-                .access_cb = device_info
-            },
-            {
-                0
-            }
-        }
-    },
-    {
-        0
-    }
-};
+    {.type = BLE_GATT_SVC_TYPE_PRIMARY,
+     .uuid = BLE_UUID16_DECLARE(DEVICE_INFO_SERVICE),
+     .characteristics = (struct ble_gatt_chr_def[]){
+         {.uuid = BLE_UUID16_DECLARE(MANUFACTURER_NAME),
+          .flags = BLE_GATT_CHR_F_READ,
+          .access_cb = device_info},
+         {0}}},
+    {0}};
 
 static int ble_gap_event(struct ble_gap_event *event, void *arg)
 {
@@ -117,7 +107,6 @@ void app_main(void)
 
     ble_gatts_count_cfg(&gat_svcs);
     ble_gatts_add_svcs(&gat_svcs);
-
 
     ble_hs_cfg.sync_cb = ble_app_on_sync;
     nimble_port_freertos_init(host_task);

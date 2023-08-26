@@ -12,7 +12,11 @@
 
 #define TAG "ESP_NOW"
 
-xQueueHandle message_received_queue;
+// IDF v4
+// xQueueHandle message_received_queue;
+
+/// IDF v5
+QueueHandle_t message_received_queue;
 
 typedef enum message_type_t
 {
@@ -51,8 +55,10 @@ void on_sent(const uint8_t *mac_addr, esp_now_send_status_t status)
     break;
   }
 }
-
-void on_receive(const uint8_t *mac_addr, const uint8_t *data, int data_len)
+// IDF 4
+// void on_receive(const uint8_t *mac_addr, const uint8_t *data, int data_len)
+// IDF 5: esp_now_recv_info_t *mac_addr is OK because its the first entry in the structure
+void on_receive(const esp_now_recv_info_t *mac_addr, const uint8_t *data, int data_len)
 {
   if (data_len != sizeof(payload_t))
   {
@@ -108,7 +114,11 @@ void app_main(void)
 {
 
   nvs_flash_init();
-  tcpip_adapter_init();
+  // idf 4.0
+  //  tcpip_adapter_init();
+
+  // idf 5.0
+  ESP_ERROR_CHECK(esp_netif_init());
   ESP_ERROR_CHECK(esp_event_loop_create_default());
   wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
   ESP_ERROR_CHECK(esp_wifi_init(&cfg));

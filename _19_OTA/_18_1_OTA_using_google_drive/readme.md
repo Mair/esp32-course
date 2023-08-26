@@ -1,3 +1,4 @@
+```c
 #include <stdio.h>
 #include <string.h>
 #include "esp_wifi.h"
@@ -86,3 +87,4 @@ void app_main(void)
   ota_semaphore = xSemaphoreCreateBinary();
   xTaskCreate(run_ota, "run_ota", 1024 * 8, NULL, 2, NULL);
 }
+```

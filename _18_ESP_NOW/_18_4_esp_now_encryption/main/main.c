@@ -15,8 +15,13 @@
 #define TAG "ESP_NOW"
 #define PIN_SWITCH 0
 
-xQueueHandle message_received_queue;
-xSemaphoreHandle button_semaphore;
+// IDF v4
+// xQueueHandle message_received_queue;
+// xSemaphoreHandle button_semaphore;
+
+/// IDF v5
+QueueHandle_t message_received_queue;
+SemaphoreHandle_t button_semaphore;
 
 typedef enum message_type_t
 {
@@ -56,7 +61,10 @@ void on_sent(const uint8_t *mac_addr, esp_now_send_status_t status)
   }
 }
 
-void on_receive(const uint8_t *mac_addr, const uint8_t *data, int data_len)
+// IDF V4
+//  void on_receive(const uint8_t *mac_addr, const uint8_t *data, int data_len)
+// idf V5
+void on_receive(const esp_now_recv_info_t *esp_now_recv_info, const uint8_t *data, int data_len)
 {
   printf("len received %d\n", data_len);
   if (data_len != sizeof(payload_t))
@@ -67,7 +75,7 @@ void on_receive(const uint8_t *mac_addr, const uint8_t *data, int data_len)
   payload_ext_t payload_ext;
   payload_t *payload = (payload_t *)data;
   payload_ext.payload = *payload;
-  memcpy(payload_ext.from_mac, mac_addr, 6);
+  memcpy(payload_ext.from_mac, esp_now_recv_info->src_addr, 6);
   xQueueSend(message_received_queue, &payload_ext, 0);
 }
 
@@ -99,51 +107,54 @@ void message_received_task(void *params)
         esp_now_peer_info_t peer;
         memset(&peer, 0, sizeof(esp_now_peer_info_t));
         memcpy(peer.peer_addr, payload_ext.from_mac, 6);
-        memcpy(peer.lmk,"thisIsMyKeyEnc1",16);
+        memcpy(peer.lmk, "thisIsMyKeyEnc1", 16);
         peer.encrypt = true;
         esp_now_add_peer(&peer);
       }
       break;
     case SEND_MESSAGE:
       ESP_LOGI(TAG, "got message: %s from %s", payload_ext.payload.message, mac_to_str(buffer, payload_ext.from_mac));
-    break;
+      break;
     default:
       break;
     }
   }
 }
 
-void send_message_task(void * params)
+void send_message_task(void *params)
 {
   button_semaphore = xSemaphoreCreateBinary();
-  while(true)
+  while (true)
   {
-    xSemaphoreTake(button_semaphore,portMAX_DELAY);
+    xSemaphoreTake(button_semaphore, portMAX_DELAY);
     esp_now_peer_num_t peer_num;
     esp_now_get_peer_num(&peer_num);
-    if(peer_num.total_num <= 1)
+    if (peer_num.total_num <= 1)
     {
-      ESP_LOGW(TAG,"no peers yet");
+      ESP_LOGW(TAG, "no peers yet");
       continue;
     }
     payload_t payload = {
-      .message_type = SEND_MESSAGE,
-      .message = "BUTTON CLICKED"
-    };
-    ESP_ERROR_CHECK(esp_now_send(NULL,(uint8_t *)&payload, sizeof(payload_t)));
+        .message_type = SEND_MESSAGE,
+        .message = "BUTTON CLICKED"};
+    ESP_ERROR_CHECK(esp_now_send(NULL, (uint8_t *)&payload, sizeof(payload_t)));
   }
 }
 
 static void IRAM_ATTR gpio_isr_handler(void *args)
 {
-  xSemaphoreGiveFromISR(button_semaphore,pdFALSE);
+  xSemaphoreGiveFromISR(button_semaphore, pdFALSE);
 }
 
 void app_main(void)
 {
 
   nvs_flash_init();
-  tcpip_adapter_init();
+  // idf 4.0
+  //  tcpip_adapter_init();
+
+  // idf 5.0
+  ESP_ERROR_CHECK(esp_netif_init());
   ESP_ERROR_CHECK(esp_event_loop_create_default());
   wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
   ESP_ERROR_CHECK(esp_wifi_init(&cfg));
@@ -166,7 +177,8 @@ void app_main(void)
   xTaskCreate(message_received_task, "message_recived_task", 1024 * 2, NULL, 5, NULL);
   xTaskCreate(send_message_task, "send_message_task", 1024 * 2, NULL, 5, NULL);
 
-  gpio_pad_select_gpio(PIN_SWITCH);
+  // IDF V4
+  // gpio_pad_select_gpio(PIN_SWITCH);
   gpio_set_direction(PIN_SWITCH, GPIO_MODE_INPUT);
   gpio_pulldown_en(PIN_SWITCH);
   gpio_pullup_dis(PIN_SWITCH);
