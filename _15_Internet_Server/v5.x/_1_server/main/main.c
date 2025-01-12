@@ -6,12 +6,11 @@
 
 static const char *TAG = "SERVER";
 
-
 static esp_err_t on_default_url(httpd_req_t *req)
 {
-    ESP_LOGI(TAG,"URL: %s",req->uri);
-    httpd_resp_sendstr(req,"hello world");
-    return ESP_OK;
+  ESP_LOGI(TAG, "URL: %s", req->uri);
+  httpd_resp_sendstr(req, "hello world");
+  return ESP_OK;
 }
 
 static void init_server()
@@ -22,12 +21,10 @@ static void init_server()
   ESP_ERROR_CHECK(httpd_start(&server, &config));
 
   httpd_uri_t default_url = {
-    .uri ="/",
-    .method = HTTP_GET,
-    .handler = on_default_url
-  };
-  httpd_register_uri_handler(server,&default_url);
-
+      .uri = "/",
+      .method = HTTP_GET,
+      .handler = on_default_url};
+  httpd_register_uri_handler(server, &default_url);
 }
 
 void app_main(void)
