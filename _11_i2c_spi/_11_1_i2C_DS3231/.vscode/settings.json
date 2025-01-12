@@ -1,11 +1,9 @@
 {
     "C_Cpp.intelliSenseEngine": "default",
     "idf.espIdfPathWin": "c:\\esp\\idf_versions\\v5.3.2\\esp-idf",
-    "idf.espAdfPathWin": "c:\\esp\\adf\\esp-adf",
     "idf.openOcdConfigs": [
         "board/esp32s3-builtin.cfg"
     ],
     "idf.portWin": "COM3",
-    "idf.toolsPathWin": "c:\\esp\\tools\\v5.3.2",
-    "idf.flashType": "JTAG"
+    "idf.toolsPathWin": "c:\\esp\\tools\\v5.3.2"
 }

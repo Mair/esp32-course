@@ -13,6 +13,14 @@
 #define PIN_CLK 14
 #define PIN_MISO 8
 
+
+#define ESP_SD_PIN_CLK            GPIO_NUM_14
+#define ESP_SD_PIN_CMD            GPIO_NUM_15
+#define ESP_SD_PIN_D0             GPIO_NUM_2
+#define ESP_SD_PIN_D1             GPIO_NUM_4
+#define ESP_SD_PIN_D2             GPIO_NUM_12
+#define ESP_SD_PIN_D3             GPIO_NUM_13
+
 static const char *TAG = "store";
 static const char *BASE_PATH = "/store";
 
@@ -29,12 +37,12 @@ void app_main(void)
     sdmmc_host_t host = SDMMC_HOST_DEFAULT();
     sdmmc_slot_config_t sdmmc_slot = SDMMC_SLOT_CONFIG_DEFAULT();
     sdmmc_slot.width = 4;
-    sdmmc_slot.clk = 14;
-    sdmmc_slot.cmd = 9;
-    sdmmc_slot.d0 = 8;
-    sdmmc_slot.d1 = 36;
-    sdmmc_slot.d2 = 37;
-    sdmmc_slot.d3 = 48;
+    sdmmc_slot.clk = ESP_SD_PIN_CLK;
+    sdmmc_slot.cmd = ESP_SD_PIN_CMD;
+    sdmmc_slot.d0 = ESP_SD_PIN_D0;
+    sdmmc_slot.d1 = ESP_SD_PIN_D1;
+    sdmmc_slot.d2 = ESP_SD_PIN_D2;
+    sdmmc_slot.d3 = ESP_SD_PIN_D3;
     sdmmc_slot.flags |= SDMMC_SLOT_FLAG_INTERNAL_PULLUP;
     ESP_ERROR_CHECK(esp_vfs_fat_sdmmc_mount(BASE_PATH, &host, &sdmmc_slot, &mount_config, &card));
 

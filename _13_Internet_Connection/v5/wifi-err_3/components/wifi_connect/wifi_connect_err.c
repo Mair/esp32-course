@@ -116,10 +116,13 @@ char *get_wifi_disconnection_string(wifi_err_reason_t wifi_err_reason)
         return "WIFI_REASON_AP_TSF_RESET";
     case WIFI_REASON_ROAMING:
         return "WIFI_REASON_ROAMING";
-    case WIFI_REASON_ASSOC_COMEBACK_TIME_TOO_LONG:
-        return "WIFI_REASON_ASSOC_COMEBACK_TIME_TOO_LONG";
-    case WIFI_REASON_SA_QUERY_TIMEOUT:
-        return "WIFI_REASON_SA_QUERY_TIMEOUT";
+    // does not work with IDF v5.0 (WORKS WITH 5.1)
+    // case WIFI_REASON_ASSOC_COMEBACK_TIME_TOO_LONG:
+    //     return "WIFI_REASON_ASSOC_COMEBACK_TIME_TOO_LONG";
+    // case WIFI_REASON_SA_QUERY_TIMEOUT:
+    //     return "WIFI_REASON_SA_QUERY_TIMEOUT";
+    default:
+        break;
     }
     return "UNKNOWN";
 }
