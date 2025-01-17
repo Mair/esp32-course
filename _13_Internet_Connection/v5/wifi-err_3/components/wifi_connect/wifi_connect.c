@@ -97,7 +97,7 @@ esp_err_t wifi_connect_sta(char *ssid, char *pass, int timeout)
     ESP_ERROR_CHECK(esp_wifi_start());
 
     EventBits_t result = xEventGroupWaitBits(wifi_events, CONNECTED | DISCONNECTED, true, false, pdMS_TO_TICKS(timeout));
-    if (result == CONNECTED)
+    if ((result & CONNECTED) == CONNECTED)
         return ESP_OK;
     return ESP_FAIL;
 }
